@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserTestDetailController">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/home.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label onMouseClicked="#loadHome" prefHeight="34.0" prefWidth="42.0" text="主界面" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#testListButton" prefHeight="34.0" prefWidth="60.0" text="线上考核" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="92.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="109.0" layoutY="20.0" onMouseClicked="#testDetailButton" prefHeight="34.0" prefWidth="60.0" text="得分详情" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="169.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="186.0" layoutY="13.0" prefHeight="34.0" prefWidth="89.0" text="用户得分详情" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/contactIcon.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+      <JFXTabPane VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="单选答案">
+               <content>
+                  <VBox nodeOrientation="LEFT_TO_RIGHT">
+                     <children>
+                        <VBox id="effectPane" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label fx:id="singleQuestion" alignment="TOP_CENTER" prefHeight="60.0" prefWidth="709.0" text="单选问题" underline="true" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox layoutX="10.0" layoutY="44.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="singleRB1" mnemonicParsing="false" text="答案1" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="221.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="singleRB2" mnemonicParsing="false" text="答案2" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="189.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="singleRB3" mnemonicParsing="false" text="答案3" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="221.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="singleRB4" mnemonicParsing="false" text="答案4" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="314.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <Label fx:id="singleCorrect" layoutX="210.0" layoutY="10.0" prefHeight="41.0" prefWidth="75.0" text="回答对错" textFill="#ff0c0c" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton fx:id="singleBackButton" onMouseClicked="#singleBack" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="上一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="singleNextButton" layoutX="669.0" layoutY="10.0" onMouseClicked="#singleNext" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="下一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="10.0" right="40.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="多选答案">
+               <content>
+                  <VBox nodeOrientation="LEFT_TO_RIGHT">
+                     <children>
+                        <VBox id="effectPane" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label fx:id="multiQuestion" alignment="TOP_CENTER" prefHeight="60.0" prefWidth="709.0" text="多选问题" underline="true" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox layoutX="10.0" layoutY="80.0" prefHeight="60.0" prefWidth="749.0">
+                                 <children>
+                                    <CheckBox fx:id="multiCB1" mnemonicParsing="false" text="答案1" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="44.0" prefHeight="60.0" prefWidth="749.0">
+                                 <children>
+                                    <CheckBox fx:id="multiCB2" mnemonicParsing="false" text="答案2" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="80.0" prefHeight="60.0" prefWidth="749.0">
+                                 <children>
+                                    <CheckBox fx:id="multiCB3" mnemonicParsing="false" text="答案3" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="80.0" prefHeight="60.0" prefWidth="749.0">
+                                 <children>
+                                    <CheckBox fx:id="multiCB4" mnemonicParsing="false" text="答案4" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="355.0" prefHeight="60.0" prefWidth="749.0">
+                                 <children>
+                                    <CheckBox fx:id="multiCB5" mnemonicParsing="false" text="答案5" wrapText="true" HBox.hgrow="ALWAYS">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                       </HBox.margin>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="314.0" prefHeight="45.0" prefWidth="729.0">
+                                 <children>
+                                    <Label fx:id="multiCorrect" layoutX="210.0" layoutY="10.0" prefHeight="41.0" prefWidth="75.0" text="回答对错" textFill="#ff0c0c" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton fx:id="multiBackButton" onMouseClicked="#multiBack" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="上一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="multiNextButton" layoutX="669.0" layoutY="10.0" onMouseClicked="#multiNext" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="下一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="10.0" right="40.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="判断答案">
+               <content>
+                  <VBox nodeOrientation="LEFT_TO_RIGHT">
+                     <children>
+                        <VBox id="effectPane" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <Label fx:id="tfQuestion" alignment="TOP_CENTER" prefHeight="60.0" prefWidth="700.0" text="判断问题" underline="true" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox layoutX="10.0" layoutY="44.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="tfRB1" mnemonicParsing="false" text="对" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="221.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <RadioButton fx:id="tfRB2" mnemonicParsing="false" text="错" wrapText="true">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="40.0" right="40.0" />
+                                       </HBox.margin>
+                                    </RadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="314.0" prefHeight="64.0" prefWidth="749.0">
+                                 <children>
+                                    <Label fx:id="tfCorrect" layoutX="210.0" layoutY="10.0" prefHeight="41.0" prefWidth="75.0" text="回答对错" textFill="#ff0c0c" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <JFXButton fx:id="tfBackButton" onMouseClicked="#tfBack" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="上一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="tfNextButton" layoutX="669.0" layoutY="10.0" onMouseClicked="#tfNext" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="下一题" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="10.0" right="40.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</VBox>

@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="2494.0" prefWidth="1026.0" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportModifyController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="845.0" style="-fx-background-color: #4e5c7e;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="20.0" onMouseClicked="#loadHome" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/home.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label onMouseClicked="#loadHome" prefHeight="20.0" prefWidth="46.0" text="主界面" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#loadReportList" prefHeight="20.0" prefWidth="89.0" text="不良事件处理" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="92.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="109.0" layoutY="20.0" prefHeight="34.0" prefWidth="115.0" text="编辑" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/contactIcon.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #2b303e;">
+         <children>
+            <Label prefHeight="21.0" prefWidth="265.0" style="-fx-font-size: 20;" text="医疗安全（不良）事件报告表" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <ScrollPane prefHeight="2500.0" prefWidth="1000.0">
+         <content>
+            <VBox alignment="TOP_CENTER" prefHeight="487.0" prefWidth="976.0" styleClass="borderHbox">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="上报科室：" />
+                        <JFXTextField fx:id="reportDepartment" styleClass="jfx-text-field" />
+                        <Label layoutX="330.0" layoutY="23.0" text="发生时间：" />
+                        <JFXDatePicker fx:id="eventDate" />
+                        <Label layoutX="441.0" layoutY="23.0" text="报告日期：" />
+                        <JFXDatePicker fx:id="reportDate" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" styleClass="topBorder">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <VBox styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="患者资料">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label text="姓名：">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="patientName" styleClass="colorField" />
+                        <Label text="性别：">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXCheckBox fx:id="male" accessibleRole="RADIO_BUTTON" text="男">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></JFXCheckBox>
+                        <JFXCheckBox fx:id="female" accessibleRole="RADIO_BUTTON" text="女" />
+                        <Label text="年龄：">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="patientAge" prefHeight="27.0" prefWidth="25.0" />
+                        <Label text="床号：">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="bedNum" prefHeight="27.0" prefWidth="33.0" />
+                        <Label text="住院号：">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="hospitalNum" prefHeight="27.0" prefWidth="49.0" />
+                        <Label text="诊断：">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="typeSickness" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="67.0" styleClass="topBorder">
+                     <children>
+                        <VBox styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="发生场所">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXCheckBox fx:id="eventLocation1" accessibleRole="RADIO_MENU_ITEM" prefHeight="20.0" prefWidth="60.0" text="急诊">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin></JFXCheckBox>
+                        <JFXCheckBox fx:id="eventLocation2" accessibleRole="RADIO_MENU_ITEM" prefHeight="20.0" prefWidth="60.0" text="门诊" />
+                        <JFXCheckBox fx:id="eventLocation3" prefHeight="20.0" prefWidth="60.0" text="病区" />
+                        <JFXCheckBox fx:id="eventLocation4" prefHeight="20.0" prefWidth="91.0" text="医技部门" />
+                        <JFXCheckBox fx:id="eventLocation5" prefHeight="20.0" prefWidth="114.0" text="行政后期部门" />
+                        <JFXCheckBox fx:id="eventLocation6" text="其他" />
+                        <JFXTextField fx:id="eventLocation6_text">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin></JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="109.0" styleClass="topBorder">
+                     <children>
+                        <VBox styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="发生科室">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="eventDepartment" prefHeight="27.0" prefWidth="88.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox layoutX="11.0" layoutY="11.0" styleClass="bothSideBorder">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="当事人">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="rpName" layoutX="89.0" layoutY="18.0" prefHeight="27.0" prefWidth="68.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox layoutX="134.0" layoutY="11.0" styleClass="bothSideBorder">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="年龄">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="rpAge" layoutX="212.0" layoutY="18.0" prefHeight="27.0" prefWidth="45.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox layoutX="257.0" layoutY="11.0" styleClass="bothSideBorder">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="工作年限">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="rpLengthOfWork" layoutX="335.0" layoutY="18.0" prefHeight="27.0" prefWidth="45.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox layoutX="380.0" layoutY="11.0" styleClass="bothSideBorder">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="职称">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="rpTitle" layoutX="458.0" layoutY="18.0" prefWidth="90.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <VBox layoutX="503.0" layoutY="11.0" styleClass="bothSideBorder">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="学历">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="rpEducation" layoutX="581.0" layoutY="18.0" prefHeight="27.0" prefWidth="68.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="151.0" styleClass="topBorder">
+                     <children>
+                        <VBox styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="报告人">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="reporterName" prefHeight="27.0" prefWidth="88.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                        <HBox alignment="CENTER" styleClass="bothSideBorder">
+                           <children>
+                              <JFXCheckBox fx:id="reporterTitle1" text="医生">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reporterTitle2" layoutX="10.0" layoutY="10.0" text="护士">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reporterTitle3" layoutX="83.0" layoutY="21.0" text="技师">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reporterTitle4" layoutX="83.0" layoutY="21.0" text="行政管理人员">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reporterTitle5" layoutX="83.0" layoutY="21.0" text="其他">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                        </HBox>
+                        <VBox layoutX="11.0" layoutY="11.0" styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="联系电话">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextField fx:id="reporterPhoneNum" minWidth="90.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="109.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" minWidth="78.0" styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="事件主要过程" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextArea fx:id="eventProcess" minHeight="180.0" prefHeight="188.0" prefWidth="800.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXTextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="109.0" styleClass="topBorder">
+                     <children>
+                        <VBox styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="事件类型">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXCheckBox fx:id="eventType1" text="医疗">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType2" text="护理">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType3" text="药学">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType4" text="院感">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType5" text="医学装备">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType6" text="后勤">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType7" layoutX="435.0" layoutY="22.0" text="医患关系">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType8" layoutX="487.0" layoutY="22.0" text="安保">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <JFXCheckBox fx:id="eventType9" layoutX="565.0" layoutY="22.0" text="信息">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="30.0" layoutY="445.0" styleClass="topBorder">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="不良事件类别">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="415.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="诊治方面">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType1" text="患者身份识别事件：诊疗过程中的患者或身体部位错误（不包括手术病人或部位错误）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType2" text="医疗处置事件：指诊断、治疗、技术操作中不当等引起的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType3" text="非预期事件：非预期重返ICU、非计划再手术">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType4" text="不作为事件：医疗护理工作中已经发现问题，但未及时处理导致的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType5" text="医疗风险评估：患者病情复杂，医生或患者对医疗风险和预后估计不足引起相关的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType6" text="医院感染事件：发生医院感染">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType7" text="职业暴露事件：诊疗过程中，医护人员的意外伤害事件，如锐器刺伤、粘膜损伤等">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="519.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="辅助检查">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType8" text="辅助检查事件：检验、病理、影像等技术检查中，丢失或弄错标本、拍错部位、发配错血；漏报、错报、迟报结果等">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="519.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="手术麻醉">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType9" text="手术事件：手术治疗中开错部位、摘错器官、遗留异物在患者体内的事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType10" text="麻醉事件：麻醉方式、部位、药品剂量错误，发生麻醉意外或并发症">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="747.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="治疗用药">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType11" text="药物事件：医嘱、处方、调剂、给药（包括错发、错用、多用、漏用）、药品不良反应、药物过敏、输液反应等相关的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType12" text="输血事件：医嘱开立、备血、传送、输血不当以及输血反应相关不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="815.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="医患沟通">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType13" text="医患沟通事件：医患沟通不良，使患者或家属对工作人员不满，引起纠纷的事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType14" text="医疗沟通事件：因医疗信息沟通过程或沟通信息失真导致的不良事件，包括检验检查结果判读错误和沟通不良">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="519.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="意外事件">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType15" text="跌倒、坠床事件：因意外跌至地面或其它平面">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType16" text="烧烫伤事件：治疗或手术后发生烧烫伤">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType17" text="非预期压疮事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType18" text="药物外渗">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType19" text="药物渗出（范围≥5cm×5cm）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType20" text="管路事件：管路滑脱、自拔事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType21" text="患者约束事件：不适当约束或执行合理约束导致的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType22" layoutX="10.0" layoutY="148.0" text="伤害事件：如言语冲突、身体攻击、自伤、走失等事件" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="883.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="医疗器械">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType23" text="医疗器械事件：医疗器械质量缺陷、使用不当或故障导致的不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType24" text="呼吸机事件：呼吸机使用相关不良事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1152.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="后勤保障">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType25" text="公共设施事件：医院建筑、通道、有害物质外泄等相关事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType26" text="水、电、气故障">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1220.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="安保消防">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType27" text="治安事件：如偷窃、骚扰、侵犯、暴力事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType28" text="消防安全事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1288.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="信息事件">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="reportType29" text="信息系统运行故障">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="reportType30" text="信息安全事件">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1356.0" minHeight="30.0" styleClass="topBorder">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="1356.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="导致事件原因" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="CauseReason1" text="患者因素">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason2" text="员工因素">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason3" layoutX="10.0" layoutY="10.0" text="药物相关">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason4" layoutX="10.0" layoutY="33.0" text="工作流程">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason5" layoutX="10.0" layoutY="33.0" text="制度执行">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason6" layoutX="10.0" layoutY="74.0" text="器材设备">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason7" layoutX="10.0" layoutY="74.0" text="沟通因素">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason8" layoutX="10.0" layoutY="56.0" text="环境因素">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="CauseReason9" layoutX="10.0" layoutY="110.0" text="教育培训">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <HBox prefHeight="27.0" prefWidth="284.0">
+                                 <children>
+                                    <JFXCheckBox fx:id="CauseReason10" text="其他">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                    </JFXCheckBox>
+                                    <JFXTextField fx:id="CauseReason10_text" prefHeight="27.0" prefWidth="192.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin></JFXTextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1454.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" styleClass="rightBorder">
+                           <children>
+                              <Label prefWidth="56.0" style="-fx-font-weight: bold;" text="事件级别">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXCheckBox fx:id="eventLevel1" text="I级事件（警告事件）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="eventLevel2" text="II级事件（不良后果事件）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="eventLevel3" layoutX="10.0" layoutY="33.0" text="III级事件（未造成后果事件）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                              <JFXCheckBox fx:id="eventLevel4" layoutX="10.0" layoutY="56.0" text="IV级事件（隐患事件）">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </JFXCheckBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="235.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" minWidth="78.0" styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="事件处理措施" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <JFXTextArea fx:id="treatmentMeasure" minHeight="180.0" prefHeight="188.0" prefWidth="800.0" styleClass="noBorderTextField">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </HBox.margin>
+                        </JFXTextArea>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1590.0" styleClass="topBorder">
+                     <children>
+                        <VBox alignment="CENTER" minWidth="78.0" styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="科室讨论分析、整改措施" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="11.0" layoutY="11.0">
+                           <children>
+                              <JFXTextArea fx:id="discussion" minHeight="180.0" prefHeight="188.0" prefWidth="800.0" styleClass="noBorderTextField">
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" top="10.0" />
+                                 </VBox.margin>
+                              </JFXTextArea>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="科主任/护士长：">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <JFXTextField fx:id="signature1" />
+                                    <Label text="日期">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <JFXDatePicker fx:id="signatureDate1" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="1792.0" styleClass="bottomBorder">
+                     <children>
+                        <VBox alignment="CENTER" minWidth="78.0" styleClass="rightBorder">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="56.0" style="-fx-font-weight: bold;" text="主管部门跟踪评价" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <JFXTextArea fx:id="followUpEvaluation" minHeight="180.0" prefHeight="188.0" prefWidth="800.0" styleClass="noBorderTextField">
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" top="10.0" />
+                                 </VBox.margin>
+                              </JFXTextArea>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="科长/主任：">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <JFXTextField fx:id="signature2" />
+                                    <Label text="日期：">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <JFXDatePicker fx:id="signatureDate2" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <JFXButton onMouseClicked="#uploadButton" prefHeight="24.0" prefWidth="335.0" style="-fx-background-color: #5a6378;" styleClass="jfx-button" text="修改并保存" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="40.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </content>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ScrollPane>
+   </children>
+   <stylesheets>
+      <URL value="@application.css" />
+      <URL value="@report.css" />
+   </stylesheets>
+</VBox>

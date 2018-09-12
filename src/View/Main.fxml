@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<SplitPane dividerPositions="0.5" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="1000.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <items>
+      <AnchorPane maxWidth="180.0" minWidth="180.0" prefWidth="180.0" SplitPane.resizableWithParent="false">
+         <children>
+            <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="180.0" minWidth="180.0" prefHeight="507.0" prefWidth="180.0" style="-fx-background-color: #393f4f;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/main/logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Accordion>
+                    <panes>
+                      <TitledPane id="titledPane1" animated="false">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openUserFile" prefHeight="30.0" style="-fx-alignment: center;" text="用户档案" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" layoutX="50.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openDepartmentFile" prefHeight="30.0" style="-fx-alignment: center;" text="科室档案" textFill="#5e6378" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane id="titledPane2" animated="false">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openTestList" prefHeight="30.0" style="-fx-alignment: center;" text="题库列表" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" layoutX="20.0" layoutY="50.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openTestStats" prefHeight="30.0" style="-fx-alignment: center;" text="线上考核" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" layoutX="20.0" layoutY="50.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openOfflineTest" prefHeight="30.0" style="-fx-alignment: center;" text="实操考核" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                        <TitledPane id="titledPane3" animated="false" layoutX="10.0" layoutY="57.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openStudyList" prefHeight="30.0" style="-fx-alignment: center;" text="课件列表" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" layoutX="20.0" layoutY="20.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openTrainingList" prefHeight="30.0" style="-fx-alignment: center;" text="培训列表" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" layoutX="30.0" layoutY="30.0" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openStudyStats" prefHeight="30.0" style="-fx-alignment: center;" text="出勤统计" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane id="titledPane4" animated="false" layoutX="10.0" layoutY="104.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openMeetingList" prefHeight="30.0" style="-fx-alignment: center;" text="会议列表" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openMettingStats" prefHeight="30.0" style="-fx-alignment: center;" text="出勤统计" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane id="titledPane5" animated="false" layoutX="10.0" layoutY="104.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openRecordList" prefHeight="30.0" style="-fx-alignment: center;" text="积分概览" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openRecordStats" prefHeight="30.0" style="-fx-alignment: center;" text="数据分析" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane id="titledPane6" animated="false" layoutX="10.0" layoutY="104.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openScheduleList" prefHeight="30.0" style="-fx-alignment: center;" text="科室排班" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane id="titledPane7" animated="false" layoutX="10.0" layoutY="104.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
+                                 <children>
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#hospitalReportButton" prefHeight="30.0" style="-fx-alignment: center;" text="事件上报汇总" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                    </panes>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Accordion>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="mainPane" />
+   </items>
+</SplitPane>

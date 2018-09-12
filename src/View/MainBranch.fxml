@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WelcomeController">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/home.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label prefHeight="34.0" prefWidth="42.0" text="主界面" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/contactIcon.png" />
+               </image>
+            </ImageView>
+            <Label text="联系我们" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox id="effectPane" alignment="TOP_CENTER" prefHeight="539.0" prefWidth="669.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <children>
+                  <HBox alignment="TOP_RIGHT">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/loginLogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="星月科技">
+                           <HBox.margin>
+                              <Insets right="30.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-size: 35;" text="欢迎使用护理宝" textFill="#5a6378" />
+                        <Hyperlink onMouseClicked="#downloadUserGuide" style="-fx-text-fill: #5a6378;" text="点此下载使用说明">
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.42" />
+                           </effect>
+                        </Hyperlink>
+                        <HBox alignment="CENTER">
+                           <children>
+                              <Label text="选择部门：" textFill="#5a6378">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <JFXComboBox fx:id="branchPicker" prefHeight="27.0" prefWidth="169.0">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXComboBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="220.0">
+                           <children>
+                              <JFXButton onMouseClicked="#changePW" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="修改密码" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton onMouseClicked="#newBranch" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="新建部门" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="70.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="539.0" prefWidth="200.0" style="-fx-background-color: #2b303e;">
+               <children>
+                  <Label style="-fx-font-size: 18;" text="EXCEL模版下载" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="40.0" top="40.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Hyperlink onMouseClicked="#downloadUserTemplate" text="添加用户模版">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink layoutX="41.0" layoutY="71.0" onMouseClicked="#downloadSingleTemplate" text="单选题模版">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink layoutX="41.0" layoutY="176.0" onMouseClicked="#downloadMultiTemplate" text="多选题模版">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink layoutX="41.0" layoutY="221.0" onMouseClicked="#downloadTfTemplate" text="判断题模版">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink layoutX="41.0" layoutY="246.0" onMouseClicked="#downloadTrainingTemplate" text="培训导入模版">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+                  <Hyperlink layoutX="41.0" layoutY="271.0" text="其他">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserTestOfflineDetailController">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/home.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label onMouseClicked="#loadHome" prefHeight="34.0" prefWidth="42.0" text="主界面" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#returnButton" prefHeight="34.0" prefWidth="60.0" text="实操考核" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="92.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="109.0" layoutY="20.0" prefHeight="34.0" prefWidth="94.0" text="查看考核详情" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/contactIcon.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" style="-fx-background-color: #2b303e;">
+         <children>
+            <Label style="-fx-font-size: 22;" text="考核详情" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <VBox id="effectPane" alignment="CENTER" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="40.0" top="20.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="70.0" prefWidth="749.0">
+               <children>
+                  <Label prefHeight="14.0" prefWidth="71.0" text="姓名：">
+                     <HBox.margin>
+                        <Insets left="100.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="nameField" prefHeight="30.0" prefWidth="190.0" />
+                  <Pane prefHeight="64.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+                  <Label text="监考人：">
+                     <HBox.margin>
+                        <Insets left="20.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="supervisorField" layoutX="48.0" layoutY="10.0" prefHeight="30.0" prefWidth="190.0">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="749.0">
+               <children>
+                  <Label text="考核时间：">
+                     <HBox.margin>
+                        <Insets left="100.0" right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="takenDateField" prefHeight="30.0" prefWidth="190.0" />
+                  <Pane prefHeight="64.0" prefWidth="89.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Pane>
+                  <Label text="考核得分：" />
+                  <JFXTextField fx:id="scoreField" layoutX="48.0" layoutY="10.0" prefHeight="30.0" prefWidth="190.0">
+                     <HBox.margin>
+                        <Insets right="100.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="176.0" prefHeight="34.0" prefWidth="729.0">
+               <children>
+                  <Label text="得分详情：">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="272.0" prefHeight="212.0" prefWidth="729.0">
+               <children>
+                  <JFXTextArea fx:id="commentField" prefHeight="209.0" prefWidth="687.0">
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+                     </HBox.margin>
+                  </JFXTextArea>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

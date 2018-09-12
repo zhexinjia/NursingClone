@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserModifyController">
+   <children>
+      <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/home.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label onMouseClicked="#loadHome" prefHeight="34.0" prefWidth="42.0" text="主界面" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#userListButton" prefHeight="34.0" prefWidth="56.0" text="用户档案" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="34.0" prefWidth="57.0" text="编辑用户" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/contactIcon.png" />
+               </image>
+            </ImageView>
+            <Label onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+      <JFXTabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="重要资料">
+               <content>
+                  <AnchorPane id="tab-background" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox id="effectPane" alignment="TOP_CENTER" layoutX="200.0" layoutY="23.0" prefHeight="399.0" prefWidth="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Label style="-fx-font-size: 24;" text="重要资料" textFill="#5a6378">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="150.0" style="-fx-font-size: 16;" text="姓名（必填）：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="nameField" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="108.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="工号（必填）：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="ssnField" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="科室 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="departmentChoiceBox" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="职称 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="titleChoiceBox" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="249.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="专业 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="specialitiesBox" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="专业技术职务 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="positionChoiceBox" prefHeight="27.0" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton buttonType="RAISED" layoutX="365.0" layoutY="428.0" onMouseClicked="#nextPane" prefHeight="31.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="下一页" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="个人信息">
+               <content>
+                  <AnchorPane id="tab-background" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox id="effectPane" alignment="TOP_CENTER" layoutX="200.0" layoutY="23.0" prefHeight="399.0" prefWidth="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Label style="-fx-font-size: 24;" text="个人信息" textFill="#5a6378">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="150.0" style="-fx-font-size: 16;" text="性别：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="sexChoiceBox" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="出生日期：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="birthPicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="108.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="籍贯 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="regionField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="入党（入团）日期 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="dateJoinPartyPicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="参加工作时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="timeStartWorkPicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton buttonType="RAISED" onMouseClicked="#nextPane" prefHeight="31.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="下一页" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="职业信息">
+               <content>
+                  <AnchorPane id="tab-background" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox id="effectPane" alignment="TOP_CENTER" layoutX="200.0" layoutY="23.0" prefHeight="399.0" prefWidth="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Label style="-fx-font-size: 24;" text="职业信息" textFill="#5a6378">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="200.0" style="-fx-font-size: 16;" text="取得护士资格证时间：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="certifactionDatePicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="200.0" style="-fx-font-size: 16;" text="护士资格证号码：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="certifactionNumField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="200.0" style="-fx-font-size: 16;" text="技术职务资格取得时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="dateReceivedTPPicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="200.0" style="-fx-font-size: 16;" text="聘任时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="hireDatePicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="200.0" style="-fx-font-size: 16;" text="护士分层等级 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="levelChoiceBox" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton buttonType="RAISED" layoutX="356.0" layoutY="428.0" onMouseClicked="#nextPane" prefHeight="31.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="下一页" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="护理分级">
+               <content>
+                  <AnchorPane id="tab-background" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox id="effectPane" alignment="TOP_CENTER" layoutX="200.0" layoutY="23.0" prefHeight="399.0" prefWidth="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Label style="-fx-font-size: 24;" text="护理分级" textFill="#5a6378">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N0时间：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N0Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="108.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N1时间：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N1Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N2时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N2Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N3时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N3Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="249.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N4时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N4Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="271.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="晋级N5时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="N5Picker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton buttonType="RAISED" layoutX="324.0" layoutY="438.0" onMouseClicked="#nextPane" prefHeight="31.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="下一页" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="学历资料">
+               <content>
+                  <AnchorPane id="tab-background" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox id="effectPane" alignment="TOP_CENTER" layoutX="200.0" layoutY="23.0" prefHeight="399.0" prefWidth="374.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Label style="-fx-font-size: 24;" text="学历资料" textFill="#5a6378">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="150.0" style="-fx-font-size: 16;" text="第一学历：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="primaryEdField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="44.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="第一学历取得时间：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="primaryEdTimePicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="108.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="第一学历取得学校 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="primaryEdSchoolField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="最高学历 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="highestEdField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="202.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="最高学历取得时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <DatePicker fx:id="highestEdTimePicker" prefWidth="200.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="249.0">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="最高学历取得学校 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="highestEdSchoolField" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton buttonType="RAISED" onMouseClicked="#addButton" prefHeight="31.0" prefWidth="169.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="更新用户信息" textFill="WHITE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
+                           </effect>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</VBox>

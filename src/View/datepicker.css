@@ -1,0 +1,17 @@
+.jfx-date-picker .input-line {
+    -fx-background-color: transparent;
+    -fx-border-width:0;
+}
+.jfx-date-picker .text-field{
+	-fx-border-width:0 0 0 0;
+	-fx-text-fill:white;
+}
+.jfx-date-picker .input-focused-line {
+    -fx-background-color: transparent;
+}
+.cb .label{
+	-fx-text-fill:white;
+}
+.cb .menu-item > .label{
+	-fx-text-fill:black ;
+}

@@ -1,0 +1,325 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.split-pane{
+    -fx-box-border: transparent;
+    -fx-padding: 0;
+}
+.split-pane *.split-pane-divider {
+	-fx-background-color:#393f4f;
+    -fx-padding: 0 1 0 1;
+}
+#loginField{
+	-fx-background-radius: 0 0 0 0;
+}
+#alertMessage{
+	/* 
+	-fx-background-radius:20, 20, 20, 20;
+	-fx-border-radius:20, 20, 20, 20;
+	*/
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+	
+}
+#registerPane{
+	/*-fx-background-image:url("../../Images/registerBG.jpg");*/
+	-fx-background-image:url("/loginBG.png");
+}
+.label{
+	-fx-font-family: "Heiti SC Medium";
+	-fx-font-size: 14px;
+}
+#footer{
+	-fx-font-family:"Heiti SC Light";
+	-fx-font-size:12px;
+	-fx-text-fill:#5e6378;
+}
+#leftPane{
+	-fx-background-image: url("/main/leftBackground.png");
+}
+
+#raisedPane{
+	-fx-background-image:url("/main/raisedBG.png");
+}
+
+#tab{
+	-fx-background-image: url("/main/clickedLabel.png");
+}
+
+/*main page */
+#label-s:hover{
+	-fx-text-fill:white;
+	-fx-background-color:#2b303e
+}
+
+/*TablPane */
+.tab{
+    -fx-background-color: #2b303e;
+    -fx-pref-width : 200;
+    -fx-pref-height : 40;
+    -fx-border-radius: 10 10 0 0, 10 10 0 0;
+}
+.tab-header-background{
+    -fx-background-color: #2b303e;
+}
+#tab-background{
+	-fx-background-color: #f8f9fa;
+	/* 
+	-fx-background-image:url("../../Images/loginBG.png") ;
+	
+	*/
+	
+}
+#effectPane{
+	-fx-effect:dropshadow(gaussian, #c1c6d3, 10, 0.6, 5, 5) ;
+	-fx-background-color: white;
+}
+#raisedPane-one{
+	-fx-effect:dropshadow(gaussian, #c1c6d3, 10, 0.6, 5, 5) ;
+	-fx-background-image: url(/blueBG.png);
+	-fx-background-size:cover;
+}
+#raisedPane-two{
+	-fx-effect:dropshadow(gaussian, #c1c6d3, 10, 0.6, 5, 5) ;
+	-fx-background-image: url(/greenBG.png);
+	-fx-background-size:cover;
+}
+#raisedPane-three{
+	-fx-effect:dropshadow(gaussian, #c1c6d3, 10, 0.6, 5, 5) ;
+	-fx-background-image: url(/yellowBG.png);
+	-fx-background-size:cover;
+}
+
+
+/*Table view */
+.table-view {
+	 -fx-border-color: white;
+	 -fx-border-radius:5;
+	 -fx-focus-color:transparent;
+}
+.table-view:selected{
+	-fx-border-color:white;
+}
+.table-view .table-row-cell {
+	-fx-border-width: 1;
+	-fx-border-insets: 0, 0, 0, 0;
+} 
+.table-view .column-header {
+	-fx-border-width:1 0 2 0;
+	-fx-border-color: white white  #e5dae4 white;
+    -fx-background-color: white;
+    -fx-size:50px;
+}
+.table-view .column-header .label{
+	-fx-font-family: "Heiti SC Medium";
+    -fx-font-size:16px;
+    -fx-alignment:center;
+    -fx-text-fill:#5a6378;
+}
+.table-row-cell{
+	-fx-cell-size:50px;
+}
+.table-row-cell:selected{
+	-fx-background-color: #e9ecf4 ;
+}
+.table-row-cell:selected .table-cell{
+}
+.table-cell{
+	-fx-alignment:center;
+	-fx-font-family: "Heiti SC Medium";
+	-fx-font-size: 16px;
+	-fx-border-color: #f8f9fa white  #f8f9fa white;
+	-fx-border-width: 1 0.0 1 0;
+	-fx-text-fill:#8c95aa;
+}
+.table-view .filler{
+	-fx-background-color:white;
+	-fx-border-width:1 0 2 0;
+	-fx-border-color: white white  #e5dae4 white;
+}
+
+
+/*Search Bar */
+#searchField{
+	-fx-border-radius: 20,20,20,20;
+	-fx-background-radius:20,20,20,20;
+	-fx-background-color:#393f4f;
+}
+.searchBoxLabel {
+    -fx-padding: 0 2 0 7;
+}
+#searchfield{
+	-fx-background-radius:20, 20, 20, 20;
+	-fx-border-radius:20, 20, 20, 20;
+	-fx-text-fill:white;
+}
+.searchBoxLabelIcon {
+	-fx-fill:white;
+    -glyph-size: 13;
+    -glyph-name: SEARCH;
+}
+/*Button */
+.jfx-button{
+	-fx-font-family: "Heiti SC Medium";
+	-fx-font-size: 14px;
+}
+.jfxbutton-circle{
+	-fx-border-radius:20,20,20,20;
+	-fx-background-radius:20,20,20,20;
+}
+
+
+/*Accordion titled-pane style */
+.titled-pane{
+	-fx-text-fill:white ;
+}
+.titled-pane .title{
+	-fx-background-color: #393f4f;
+	-fx-pref-height:44.5px;
+	-fx-background-size:cover;
+}
+.titled-pane > .title > .arrow-button .arrow{
+	-fx-background-color: transparent;
+    -fx-background-color:#393f4f;
+    -fx-focus-color: transparent; 
+}
+
+#titledPane1 .title{
+	-fx-background-image:url(/main/fileBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane2 .title{
+	-fx-background-image:url(/main/testBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane3 .title{
+	-fx-background-image:url(/main/studyBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane4 .title{
+	-fx-background-image:url(/main/meetingBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane5 .title{
+	-fx-background-image:url(/main/recordBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane6 .title{
+	-fx-background-image:url(/main/scheduleBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane7 .title{
+	-fx-background-image:url(/main/reportBG.png) ;
+	-fx-background-size:contain;
+}
+#titledPane1 .title:hover{
+	-fx-background-image:url(/main/fileBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane2 .title:hover{
+	-fx-background-image:url(/main/testBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane3 .title:hover{
+	-fx-background-image:url(/main/studyBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane4 .title:hover{
+	-fx-background-image:url(/main/meetingBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane5 .title:hover{
+	-fx-background-image:url(/main/recordBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane6 .title:hover{
+	-fx-background-image:url(/main/scheduleBG1.png) ;
+	-fx-background-size:contain;
+}
+#titledPane7 .title:hover{
+	-fx-background-image:url(/main/reportBG1.png) ;
+	-fx-background-size:contain;
+}
+.titled-pane > .content{
+	-fx-border-color: #393f4f  #393f4f  #393f4f  #393f4f;
+}
+/*choice box */
+.choice-box{
+	-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+	-fx-background-insets: 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-pref-height:27;
+}
+.choice-box .context-menu{
+	-fx-background-color:white;
+}
+
+.hyperlink{
+	-fx-text-fill:white;
+}
+.myLink{
+   -fx-text-fill: white;
+}
+
+.topBorder{
+	-fx-border-color:black black transparent black;
+}
+.bottomBorder{
+	-fx-border-color:black black black black;
+}
+.rightBorder{
+	-fx-border-color:transparent black transparent transparent;
+}
+.bothSideBorder{
+	-fx-border-color:transparent black transparent black;
+}
+.noBorderTextField{
+  	-jfx-focus-color: transparent;
+    -jfx-unfocus-color: transparent;
+}
+
+
+/*Date Picker */
+/* 
+.jfx-date-picker .input-line {
+    -fx-background-color: transparent;
+    -fx-border-width:0;
+}
+.jfx-date-picker .text-field{
+	-fx-border-width:0 0 0 0;
+	-fx-text-fill:white;
+}
+.jfx-date-picker .input-focused-line {
+    -fx-background-color: transparent;
+}
+*/
+
+
+/* 
+.date-picker{
+	-fx-border-radius: 20,20,20,20;
+	-fx-background-radius:20,20,20,20;
+	-fx-background-color:#393f4f;
+}
+.date-picker > .text-field {
+    -fx-background-color:black;
+    -fx-background-insets: 1 0 1 1;
+    -fx-background-radius: 2 0 0 2;
+}
+
+.date-picker:focused > .text-field,
+.date-picker > .text-field:focused {
+    -fx-background-color:
+        -fx-control-inner-background,
+        -fx-faint-focus-color,
+        linear-gradient(from 0px 0px to 0px 5px, derive(-fx-control-inner-background, -9%), -fx-control-inner-background);
+    -fx-background-insets: 1 0 1 1, 1 0 1 1, 3 2 3 3;
+    -fx-background-radius: 2 0 0 2, 1 0 0 1, 0;
+}
+
+*/
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+.label{
+	-fx-font-family: "Heiti SC Medium";
+	-fx-font-size: 14px;
+}
+#leftPane{
+	-fx-background-image: url("leftBackground.png");
+}
+
+#tab{
+	-fx-background-image: url("clickedLabel.png");
+}

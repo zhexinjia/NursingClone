@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="registerPane" fx:id="box" prefHeight="551.0" prefWidth="665.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegisterController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="81.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/loginLogo.png" />
+         </image>
+      </ImageView>
+      <Line endX="564.0" layoutX="115.0" layoutY="50.0" opacity="0.32" startX="-100.0" stroke="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="567.0" layoutY="20.0" onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <VBox alignment="TOP_CENTER" layoutX="348.0" layoutY="88.0" prefWidth="258.0" style="-fx-background-color: #ced4e0;">
+         <children>
+            <Label prefHeight="17.0" prefWidth="188.0" text="欢迎注册医效通后台管理系统" textFill="#6e7b8a">
+               <font>
+                  <Font name="Heiti SC Medium" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/usernameIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField id="loginField" fx:id="userNameField" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入用户名">
+                     <font>
+                        <Font name="Heiti SC Light" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/passwordIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <PasswordField id="loginField" fx:id="passwordField" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入密码">
+                     <font>
+                        <Font name="Heiti SC Light" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="57.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/passwordIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <PasswordField id="loginField" fx:id="passwordField2" prefHeight="27.0" prefWidth="213.0" promptText=" 请确认密码">
+                     <font>
+                        <Font name="Heiti SC Light" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </PasswordField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="155.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true">
+                     <image>
+                        <Image url="/hospitalIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField id="loginField" fx:id="hospitalNameField" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入医院名称">
+                     <font>
+                        <Font name="Heiti SC Light" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="204.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true">
+                     <image>
+                        <Image url="/barCodeIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField id="loginField" fx:id="codeField" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入注册码">
+                     <font>
+                        <Font name="Heiti SC Light" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="253.0" style="-fx-background-color: white;">
+               <children>
+                  <Button id="loginButton" mnemonicParsing="false" onMouseClicked="#registerButton" prefHeight="27.0" prefWidth="241.0" style="-fx-background-color: #526182;" text="注    册" textFill="WHITE">
+                     <font>
+                        <Font name="Heiti SC Medium" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="302.0" style="-fx-background-color: #ced4e0;">
+               <children>
+                  <ImageView fitHeight="17.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/registerIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Button id="loginButton" mnemonicParsing="false" onMouseClicked="#loginButton" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: transparent;" text="返回登陆" textFill="#6e7b8a">
+                     <font>
+                        <Font name="Heiti SC Medium" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets bottom="10.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" color="#d7bcbc" />
+         </effect>
+      </VBox>
+      <Label layoutX="111.0" layoutY="321.0" prefHeight="38.0" prefWidth="114.0" style="-fx-font-size: 26;" text="赛讯软件" textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</AnchorPane>

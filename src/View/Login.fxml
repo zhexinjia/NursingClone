@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-image:url('/loginBG.png');-fx-background-size:cover" id="loginBG" fx:id="box" prefHeight="442.0" prefWidth="665.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+   <children>
+   <!--  
+      <ImageView fitHeight="461.0" fitWidth="665.0" layoutX="118.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="loginBG.png" />
+         </image>
+      </ImageView>
+      -->
+      <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="90.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="loginLogo.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e9edf4" height="256.0" layoutX="309.0" layoutY="93.0" stroke="#ced4e0" strokeType="INSIDE" width="310.0" />
+      <Line endX="564.0" layoutX="115.0" layoutY="50.0" opacity="0.32" startX="-100.0" stroke="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutX="567.0" layoutY="20.0" onMouseClicked="#contactButton" text="联系我们" textFill="WHITE">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="164.0" layoutX="309.0" layoutY="139.0" stroke="WHITE" strokeType="INSIDE" width="310.0" />
+      <Label layoutX="370.0" layoutY="107.0" prefHeight="17.0" prefWidth="188.0" text="欢迎登录，医效通后台管理系统" textFill="#6e7b8a">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font>
+      </Label>
+      <TextField id="loginField" fx:id="usernameField" layoutX="373.0" layoutY="164.0" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入用户名">
+         <font>
+            <Font name="Heiti SC Light" size="12.0" />
+         </font>
+      </TextField>
+      <PasswordField id="loginField" fx:id="passwordField" layoutX="373.0" layoutY="208.0" prefHeight="27.0" prefWidth="213.0" promptText=" 请输入密码">
+         <font>
+            <Font name="Heiti SC Light" size="13.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="346.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="usernameIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="346.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="passwordIcon.png" />
+         </image>
+      </ImageView>
+      <Button id="loginButton" layoutX="346.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#loginButton" prefHeight="27.0" prefWidth="241.0" style="-fx-background-color: #526182;" text="登    陆" textFill="WHITE">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView fitHeight="17.0" fitWidth="13.0" layoutX="511.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="registerIcon.png" />
+         </image>
+      </ImageView>
+      <Button id="loginButton" layoutX="517.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#registerButton" prefHeight="24.0" prefWidth="82.0" style="-fx-background-color: transparent;" text="立即注册" textFill="#6e7b8a">
+         <font>
+            <Font name="Heiti SC Medium" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label alignment="CENTER" layoutX="108.0" layoutY="284.0" prefHeight="39.0" prefWidth="122.0" style="-fx-font-size: 26;" text="赛讯软件" textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</AnchorPane>
