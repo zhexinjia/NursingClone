@@ -539,7 +539,16 @@ public class BankModifyController implements Initializable {
 					map = inputMap;
 				}	
     				map.put("question", box.question.getText());
-    				map.put("answer", box.group.getSelectedToggle().getUserData().toString());
+    				
+    				String ans =  box.group.getSelectedToggle().getUserData().toString();
+    				if (ans == "对") {
+    					map.put("answer", "A");
+    				}else if (ans == "错") {
+    					map.put("answer", "B");
+    				}else {
+    					System.out.println("Something goes wrong here");
+    				}
+    				
     				if(is_empty) {
     					dbHelper.insert(map, "exam_qa_tf");
     				}else {

@@ -90,7 +90,7 @@ public class TestOfflineNewController implements Initializable {
 		req_list.add(tst);
 		inpuContentField.clear();
 		inputPointField.clear();
-		System.out.println("req_list:" + req_list);
+		
     }
     
     @FXML void deleteRowClicked(){

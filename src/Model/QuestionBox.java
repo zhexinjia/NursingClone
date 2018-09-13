@@ -244,7 +244,7 @@ public class QuestionBox {
 		if(map!=null) {
 			question.setText(map.get("question"));
 			String ans = map.get("answer");
-			if(ans.equals("对")) {
+			if(ans.equals("A")) {
 				op1.setSelected(true);
 			}else{
 				op2.setSelected(true);

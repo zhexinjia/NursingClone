@@ -34,8 +34,8 @@ public class TestOfflineController implements Initializable {
     Loader loader = new Loader();
     DBhelper dbHelper;
     private ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-    String[] keys = {"exam_name", "totalPoint", "time"};
-    String[] fields = {"考核名称", "考核积分", "考核时间"};
+    String[] keys = {"exam_name", "totalPoint", "start_date", "end_date"};
+    String[] fields = {"考核名称", "考核积分", "考核开始日期", "考核结束日期"};
     public static HashMap<String, String> selectedTest;
     private String branch;
     
