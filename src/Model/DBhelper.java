@@ -18,6 +18,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import Controller.LoginController;
+import javafx.collections.ObservableList;
 
 /*
  * below is the insert statement check if exists before insert
@@ -520,6 +521,7 @@ public class DBhelper {
 		return false;
 	}
 	
+	
 
 
 	public String insertHistoryHelper(HashMap<String, String> map, String id, String type) {
@@ -659,6 +661,30 @@ public class DBhelper {
 		return false;
 	
 	}
+	
+	
+	public boolean insertOffline(HashMap<String, String> map, ObservableList<HashMap<String, String>> req_list) {
+		
+		String sql = "sql=" + mapInsert(map, "offlineexam_list");
+		sql += "SELECT @exam_id := max(id) from medic.offlineexam_list;";
+		
+		for(HashMap<String, String> req:req_list) {
+			sql+="insert into offline_req_bank (offlineexam_id, point, req) "
+					+ "VALUES (@exam_id, '" + req.get("point") + "', '" + req.get("req") + "');";
+		}
+		
+		System.out.println(sql);
+		
+		if (sendPost(urlSend, sql)) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+		
+	
+	
 	
 	/****************************************************************************/
 	
