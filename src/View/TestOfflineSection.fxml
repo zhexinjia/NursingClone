@@ -60,7 +60,7 @@
                   <Image url="/rightArrow.png" />
                </image>
             </ImageView>
-            <Label text="详情" textFill="WHITE">
+            <Label text="查看添加档期" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -172,7 +172,7 @@
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
             </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="10.0" onMouseClicked="#deleteButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="删除考核" textFill="WHITE">
+            <JFXButton alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#deleteButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #9a0d0d;" styleClass="jfxbutton-circle" text="删除档期" textFill="#e4e2e2">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

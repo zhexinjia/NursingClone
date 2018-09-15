@@ -874,11 +874,14 @@ public class DBhelper {
 	
 	public boolean publishOfflineExam(ArrayList<HashMap<String, String>> userList, HashMap<String, String> item) {
 		String id = item.get("id");
+		Integer totalPoint = Integer.parseInt(item.get("totalPoint"));
+		
 		String sql = "sql=";
+		sql += "update offlineexam_list set publishStatus = '已发布' where id= '" + id + "';";
 		for (HashMap<String, String> user:userList) {
 			String ssn = user.get("ssn");
 			sql += "insert ignore into offlineexam_history (ssn, offlineexam_id, finish_status) VALUES ('" + ssn + "', '" + id + "', '否');";
-			sql += "update offlineexam_list set publishStatus = '已发布' where id= '" + id + "';";
+		//	sql += "update user_score set totalScore = (totalScore %2B " + totalPoint + ") where ssn = '" + ssn + "';";
 		}
 		
 		System.out.println(sql);

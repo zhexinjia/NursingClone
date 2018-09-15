@@ -27,8 +27,9 @@ public class TestOfflineDetailController implements Initializable{
 	@FXML Label finishPercent;
 	
 	Loader loader = new Loader();
+	private HashMap<String, String> selectedSection;
 	private HashMap<String, String> selectedTest;
-	private String examID;
+	private String sectionID;
 	String totalPoint;
 	DBhelper dbHelper = new DBhelper();
 	ArrayList<HashMap<String, String>> list;
@@ -41,10 +42,12 @@ public class TestOfflineDetailController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		selectedTest = TestOfflineController.selectedTest;
-		examID = selectedTest.get("id");
+		selectedSection = TestOfflineSectionController.selectedSection;
+		
+		sectionID = selectedSection.get("id");
 		//拿到这份卷子的总分, 名字
-		totalPoint = selectedTest.get("totalPoint");
-		name = selectedTest.get("exam_name");
+		//totalPoint = selectedSection.get("totalPoint");
+		//name = selectedTest.get("exam_name");
 		setupTable();
 		getList();
 		setupLabelandChart();
@@ -109,7 +112,7 @@ public class TestOfflineDetailController implements Initializable{
 		int newLength;
 		System.out.println("importLength" + importLength);
 		if(importlist!=null) {
-			if (dbHelper.insertOfflineTest(importlist, examID, name, totalPoint)) {
+			if (dbHelper.insertOfflineTest(importlist, sectionID, name, totalPoint)) {
 				getList();
 				reload();
 				newLength = list.size();
@@ -152,11 +155,11 @@ public class TestOfflineDetailController implements Initializable{
     
 	private void getList() {
 		
-		String[] columns = {"offlineexam_history.offlineexam_id", "offlineexam_history.id as id", "user_primary_info.department", "user_primary_info.name", 
+		String[] columns = {"offlineexam_history.section_id", "offlineexam_history.id as id", "user_primary_info.department", "user_primary_info.name", 
 				"user_primary_info.position", "user_primary_info.title", "user_primary_info.level", "offlineexam_history.finish_status as finish", 
 				"offlineexam_history.score as score", "offlineexam_list.totalPoint", };
-		String[] searchColumns = {"offlineexam_history.offlineexam_id"};
-		String[] searchValues = {examID};
+		String[] searchColumns = {"offlineexam_history.section_id"};
+		String[] searchValues = {sectionID};
 		String table = "offlineexam_history inner join user_primary_info on offlineexam_history.ssn = user_primary_info.ssn "
 				+ "inner join offlineexam_list on offlineexam_history.offlineexam_id  = offlineexam_list.id";
 		

@@ -68,11 +68,12 @@ public class TestOfflineController implements Initializable {
     }
     
   
-    /*
+    
     @FXML
     void publishButton() {
     		//未发布，已发布，已截止
     		selectedTest = tableView.getSelectionModel().getSelectedItem();
+    		/*
     		if(selectedTest==null) {
     			PopupWindow pop = new PopupWindow();
     			pop.alertWindow("操作失败", "请选中需要操作的考试。");
@@ -82,8 +83,19 @@ public class TestOfflineController implements Initializable {
     			PopupWindow popUP = new PopupWindow();
     			popUP.alertWindow("操作失败", "试卷已经截止或者已发布，无法添加考试人员。");
     		}
+    		*/
+    		
+    		if(selectedTest==null) {
+    			PopupWindow pop = new PopupWindow();
+    			pop.alertWindow("操作失败", "请选中需要操作的考试。");
+    		}else {
+    			loader.loadVBox(box, "/View/TestOfflinePublish.fxml");
+    		}
+    		
     }
     
+    
+    /*
     @FXML void endButton() {
     		HashMap<String, String> selected = tableView.getSelectionModel().getSelectedItem();
     		if(loader.selectionCheck(selected)) {

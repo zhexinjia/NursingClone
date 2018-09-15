@@ -38,6 +38,7 @@ public class TestOfflineSectionController implements Initializable {
     String[] keys = {"id", "date", "start_time", "end_time", "quantity", "location"};
     String[] fields = {"档期编号","考核日期", "开始时间", "结束时间", "可报名人数", "地点"};
     public static HashMap<String, String> selectedTest;
+    public static HashMap<String, String> selectedSection;
     private String branch;
     
     @Override
@@ -129,7 +130,7 @@ public class TestOfflineSectionController implements Initializable {
     }
     */
     @FXML void detailButton() {
-    		selectedTest = tableView.getSelectionModel().getSelectedItem();
+    		selectedSection = tableView.getSelectionModel().getSelectedItem();
     		if(loader.selectionCheck(selectedTest)) {
     			loader.loadVBox(box, "/View/TestOfflineDetail.fxml");
     		}
