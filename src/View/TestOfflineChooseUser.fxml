@@ -5,7 +5,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -16,45 +15,10 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TestOfflineController">
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TestOfflineChooseUserController">
    <children>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
          <children>
-            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/home.png" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="20.0" top="10.0" />
-               </HBox.margin>
-            </ImageView>
-            <Label onMouseClicked="#loadHome" prefHeight="34.0" prefWidth="42.0" text="主界面" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Heiti SC Medium" size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
-            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/rightArrow.png" />
-               </image>
-            </ImageView>
-            <Label prefHeight="34.0" prefWidth="117.0" text="实操考核" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Heiti SC Medium" size="16.0" />
-               </font>
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin>
-            </Label>
             <Pane HBox.hgrow="ALWAYS" />
             <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -62,12 +26,12 @@
                </image>
             </ImageView>
             <Label onMouseClicked="#contact" text="联系我们" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
                <HBox.margin>
                   <Insets bottom="10.0" left="5.0" right="25.0" top="10.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </HBox>
@@ -104,21 +68,16 @@
                   <Font name="Heiti SC Light" size="14.0" />
                </font>
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                </HBox.margin>
             </JFXButton>
-            <Pane prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Pane HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <TableView fx:id="tableView" nodeOrientation="LEFT_TO_RIGHT" prefHeight="377.0" prefWidth="419.0" VBox.vgrow="ALWAYS">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
-         <columns>
-            <TableColumn prefWidth="75.0" text="试卷名称" />
-            <TableColumn prefWidth="75.0" text="题目总数" />
-            <TableColumn prefWidth="75.0" text="总分" />
-         </columns>
          <effect>
             <DropShadow blurType="GAUSSIAN" color="#c1c6d3" height="16.0" radius="7.5" spread="0.6" width="16.0" />
          </effect>
@@ -137,29 +96,7 @@
                </HBox.margin>
             </Label>
             <Pane HBox.hgrow="ALWAYS" />
-            <JFXButton onMouseClicked="#newButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="添加考核" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Heiti SC Light" size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看详情" textFill="WHITE">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="Heiti SC Light" size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </HBox.margin>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="10.0" onMouseClicked="#deleteButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="删除考核" textFill="WHITE">
+            <JFXButton layoutX="10.0" layoutY="10.0" onMouseClicked="#comfirmButton" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="确定" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

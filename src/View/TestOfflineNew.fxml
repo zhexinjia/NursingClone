@@ -97,7 +97,10 @@
          </padding></Label>
       <VBox id="effectPane" alignment="CENTER" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity">
          <children>
-            <Label style="-fx-font-size: 24;" text="实操考核设置" textFill="#5a6378" />
+            <Label style="-fx-font-size: 24;" text="实操考核设置" textFill="#5a6378">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Label>
             <HBox alignment="CENTER">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="150.0" style="-fx-font-size: 16;" text="考核名称 ：" textAlignment="RIGHT" textFill="#8c95aa">

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TestOfflineController">
+<VBox fx:id="box" alignment="TOP_CENTER" prefHeight="593.0" prefWidth="789.0" style="-fx-background-color: #f8f9fa;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TestOfflineSectionController">
    <children>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #4e5c7e;">
          <children>
@@ -44,7 +44,7 @@
                   <Image url="/rightArrow.png" />
                </image>
             </ImageView>
-            <Label prefHeight="34.0" prefWidth="117.0" text="实操考核" textFill="WHITE">
+            <Label onMouseClicked="#testOfflineButton" text="实操考核" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -54,6 +54,19 @@
                <HBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </HBox.margin>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label text="详情" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
             </Label>
             <Pane HBox.hgrow="ALWAYS" />
             <ImageView fitHeight="14.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
@@ -137,7 +150,7 @@
                </HBox.margin>
             </Label>
             <Pane HBox.hgrow="ALWAYS" />
-            <JFXButton onMouseClicked="#newButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="添加考核" textFill="WHITE">
+            <JFXButton onMouseClicked="#newButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="添加" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -148,7 +161,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </JFXButton>
-            <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看详情" textFill="WHITE">
+            <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="得分详情" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -1016,8 +1016,10 @@ public class DBhelper {
 	public boolean deleteOfflineExam(HashMap<String, String> map) {
 		String id = map.get("id");
 		String exam = "delete from offlineexam_list where id=" + "'" + id + "';";
+		String section = "delete from offline_section where offlineexam_id=" + "'" + id + "';";
+		String req_bank = "delete from offline_req_bank where offlineexam_id=" + "'" + id + "';";
 		String history = "delete from offlineexam_history where offlineexam_id=" + "'" + id + "';";
-		String sql = "sql=" + exam + history;
+		String sql = "sql=" + exam + section + req_bank + history;
 		System.out.println(sql);
 		if (sendPost(urlSend, sql)) {
 			System.out.println("Delete Offline Exam Success");
@@ -1028,6 +1030,24 @@ public class DBhelper {
 		System.out.println("Fail to Delete Offline Exam");
 		return false;
 	}
+	
+	public boolean deleteOfflineSection(HashMap<String, String> map) {
+		String id = map.get("id");
+		String exam = "delete from offline_section where id=" + "'" + id + "';";
+		String history = "delete from offlineexam_history where section_id=" + "'" + id + "';";
+		String sql = "sql=" + exam + history;
+		System.out.println(sql);
+		if (sendPost(urlSend, sql)) {
+			System.out.println("Delete Offline Section Success");
+			//success();
+			return true;
+		}
+		//fail();
+		System.out.println("Fail to Delete Section Exam");
+		return false;
+	}
+	
+	
 	
 	
 

@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 
-public class TestOfflineController implements Initializable {
+public class TestOfflineSectionController implements Initializable {
 	
 	@FXML
 	private VBox box;
@@ -33,14 +33,17 @@ public class TestOfflineController implements Initializable {
     
     Loader loader = new Loader();
     DBhelper dbHelper;
+    public String examID;
     private ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-    String[] keys = {"exam_name", "totalPoint", "start_date", "end_date"};
-    String[] fields = {"考核名称", "考核积分", "考核开始日期", "考核结束日期"};
+    String[] keys = {"id", "date", "start_time", "end_time", "quantity", "location"};
+    String[] fields = {"档期编号","考核日期", "开始时间", "结束时间", "可报名人数", "地点"};
     public static HashMap<String, String> selectedTest;
     private String branch;
     
     @Override
  	public void initialize(URL location, ResourceBundle resources) {
+    		selectedTest = TestOfflineController.selectedTest;
+		examID = selectedTest.get("id");
     		branch = LoginController.branch;
     		dbHelper = new DBhelper();
 		setupTable();
@@ -67,7 +70,12 @@ public class TestOfflineController implements Initializable {
     		reload();
     }
     
-  
+    @FXML
+    void testOfflineButton() {
+    		loader.loadVBox(box, "/View/TestOffline.fxml");
+    }
+    
+    
     /*
     @FXML
     void publishButton() {
@@ -105,7 +113,7 @@ public class TestOfflineController implements Initializable {
 
     @FXML
     void newButton() {
-    		loader.loadVBox(box, "/View/TestOfflineNew.fxml");
+    		loader.loadVBox(box, "/View/TestOfflineSectionNew.fxml");
     }
 
     /*
@@ -123,7 +131,7 @@ public class TestOfflineController implements Initializable {
     @FXML void detailButton() {
     		selectedTest = tableView.getSelectionModel().getSelectedItem();
     		if(loader.selectionCheck(selectedTest)) {
-    			loader.loadVBox(box, "/View/TestOfflineSection.fxml");
+    			loader.loadVBox(box, "/View/TestOfflineDetail.fxml");
     		}
     }
 
@@ -144,9 +152,13 @@ public class TestOfflineController implements Initializable {
 	}
 	
 	private void getList() {
-		
-		list = dbHelper.getEntireList(new String[] {"branch"}, new String[] {LoginController.branch}, "offlineexam_list");
-		System.out.println("list: " + list);
+	
+		String[] columns = {"offline_section.id", "offline_section.date", "offline_section.start_time", "offline_section.end_time", 
+				"offline_section.quantity", "offline_section.location"};
+		String[] searchColumns = {"offline_section.offlineexam_id"};
+		String[] searchValues = {examID};
+				
+		list = dbHelper.getList(searchColumns, searchValues, "offline_section", columns);
 	}
 	
 	private void reload() {
@@ -159,13 +171,13 @@ public class TestOfflineController implements Initializable {
 		PopupWindow popUP = new PopupWindow();
 		popUP.confirmButton.setOnAction(e->{
 			//TODO: fix me, delete exam also delete exam-question relation table
-			if(dbHelper.deleteOfflineExam(map)) {
+			if(dbHelper.deleteOfflineSection(map)) {
 				popUP.stage.close();
 				getList();
 				reload();
 			}
 		});
-		popUP.confirmWindow("确认要删除该考核吗？", "删除考核将删除所有与本考核相关信息");
+		popUP.confirmWindow("确认要删除该考核档期吗？", "删除考核档期将删除所有相关信息");
 	}
 
 }
