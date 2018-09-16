@@ -63,7 +63,20 @@
                   <Image url="/rightArrow.png" />
                </image>
             </ImageView>
-            <Label layoutX="109.0" layoutY="20.0" prefHeight="34.0" prefWidth="60.0" text="得分详情" textFill="WHITE">
+            <Label layoutX="109.0" layoutY="20.0" onMouseClicked="#offlineSectionClicked" prefHeight="34.0" prefWidth="60.0" text="档期列表" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Medium" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="169.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/rightArrow.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="186.0" layoutY="20.0" prefHeight="34.0" prefWidth="60.0" text="得分详情" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

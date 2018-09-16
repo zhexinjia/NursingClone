@@ -23,7 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 
 public class TestOfflineChooseUserController implements Initializable {	
-	@FXML TableView<CheckMap> tableView;
+	@FXML TableView<HashMap<String, String>> tableView;
 	@FXML Label countLabel;
 	@FXML VBox box;
 	@FXML private CustomTextField searchField;
@@ -35,13 +35,11 @@ public class TestOfflineChooseUserController implements Initializable {
 	ObservableList<CheckMap> checklist;
 	String[] keys = {"name", "department", "title", "position", "level"};
 	String[] fields = {"姓名", "科室", "职称", "职务", "层级"};
-	public static ArrayList<HashMap<String, String>> userList;
+	public static HashMap<String, String> selectedUser;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//selectedMeeting = MeetingListController.selectedMeeting;
 		setupTable();
-	//	setupCheckBox();
 		getList();
 		reload();
 	}
@@ -49,22 +47,16 @@ public class TestOfflineChooseUserController implements Initializable {
 	
 	@FXML
 	void comfirmButton() {
-		
-		userList = getChecked();
-		
-		if (userList.size() > 1) {
-			PopupWindow pop = new PopupWindow();
-			pop.alertWindow("操作失败", "只能选择一位用户");
-		}else {
-			String name = userList.get(0).get("name");
-			String ssn = userList.get(0).get("ssn");
+
+		selectedUser = tableView.getSelectionModel().getSelectedItem();
+
+			String name = selectedUser.get("name");
+			String ssn = selectedUser.get("ssn");
 			String button = StageManager.Button.get("button");
-			System.out.println("userList"+userList);
+			//System.out.println("userList"+userList);
 			TestOfflineSectionNewController index = (TestOfflineSectionNewController) StageManager.CONTROLLER.get("sectionControl");
 			if (button == "1") {
 				index.userID_1 = ssn;
-				//System.out.println("ssn: " + ssn);
-				//System.out.println("index.userID_1: " + index.userID_1);
 				index.nameField1.setText(name);
 				
 			}else if (button == "2") {
@@ -87,7 +79,7 @@ public class TestOfflineChooseUserController implements Initializable {
 			StageManager.Button.remove("button");
 			StageManager.CONTROLLER.remove("sectionControl");
 		}
-	}
+	
 	
 	@FXML void contact(){
 		loader.loadWeb();
@@ -105,12 +97,6 @@ public class TestOfflineChooseUserController implements Initializable {
     }
 
 
-    private void setupCheckBox() {
-    		for(CheckMap checkMap:checklist) {
-			checkMap.cb.setUnCheck();
-		}
-    }
-
 	private void getList() {
 		//list = dbHelper.getEntireList("user_primary_info");
 		list = dbHelper.getEntireList(new String[] {"branch"}, new String[] {LoginController.branch}, "user_primary_info");
@@ -118,28 +104,17 @@ public class TestOfflineChooseUserController implements Initializable {
 	
 	
 	private void setupTable() {
-		loader.setupCheckTable(tableView, keys, fields);
+		loader.setupTable(tableView, keys, fields);
 	}
 	
 	private void reload() {
-		ObservableList<HashMap<String, String>> searchList = loader.search(list, searchField.getText());
-		checklist = FXCollections.observableArrayList();
-		for(HashMap<String, String> map:searchList) {
-			checklist.add(new CheckMap(map));
-		}
-		tableView.setItems(checklist);
-		countLabel.setText("共 " + searchList.size() + " 条");
+		
+		ObservableList<HashMap<String, String>> searchList = loader.search(list, "");
+		tableView.setItems(searchList);
+		countLabel.setText("共 " +searchList.size()+ " 条");
 	}
 	
-	private ArrayList<HashMap<String, String>> getChecked(){
-		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-		for(CheckMap checkMap:checklist) {
-			if (checkMap.cb.isSelected()) {
-				list.add(checkMap.map);
-			}
-		}
-		return list;
-	}
+	
 	
 	
 

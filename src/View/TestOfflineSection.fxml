@@ -60,7 +60,7 @@
                   <Image url="/rightArrow.png" />
                </image>
             </ImageView>
-            <Label text="查看添加档期" textFill="WHITE">
+            <Label text="档期列表" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

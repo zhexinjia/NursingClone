@@ -83,6 +83,10 @@ public class TestOfflineDetailController implements Initializable{
     	
     }
     
+    @FXML void offlineSectionClicked() {
+    		loader.loadVBox(box, "/View/TestOfflineSection.fxml");
+    }
+    
     @FXML 
     void deleteButton() {
 		HashMap<String, String> selected = tableView.getSelectionModel().getSelectedItem();
