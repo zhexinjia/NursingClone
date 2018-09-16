@@ -138,6 +138,16 @@ public class TestOfflineController implements Initializable {
     			loader.loadVBox(box, "/View/TestOfflineSection.fxml");
     		}
     }
+    
+    @FXML
+    void detailListClicked() {
+    	
+    		selectedTest = tableView.getSelectionModel().getSelectedItem();
+		if(loader.selectionCheck(selectedTest)) {
+			loader.loadVBox(box, "/View/TestOfflineDetailList.fxml");
+		}
+    		
+    }
 
     @FXML
     void deleteButton() {

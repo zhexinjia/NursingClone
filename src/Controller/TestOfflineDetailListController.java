@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 
-public class TestOfflineDetailController implements Initializable{
+public class TestOfflineDetailListController implements Initializable{
 	@FXML VBox box;
 	@FXML TableView<HashMap<String, String>> tableView;
 	@FXML PieChart pieChart;
@@ -27,27 +27,22 @@ public class TestOfflineDetailController implements Initializable{
 	@FXML Label finishPercent;
 	
 	Loader loader = new Loader();
-	private HashMap<String, String> selectedSection;
 	private HashMap<String, String> selectedTest;
-	private String sectionID;
+	private String examID;
 	String totalPoint;
 	DBhelper dbHelper = new DBhelper();
 	ArrayList<HashMap<String, String>> list;
 	public static HashMap<String, String> selectedUser;
 	
-	String[] keys = {"name", "ssn", "taken_date", "supervisor", "finish_status", "score", "comment"};
-    String[] fields = {"名字", "工号", "考核时间", "监考人", "是否完成", "得分", "备注"};
+	String[] keys = { "ssn", "name", "section_id", "finish_status","score_list", "score", "comment"};
+    String[] fields = {"工号", "名字", "档期编号", "是否完成", "得分情况", "总得分","备注"};
 
     String name;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		selectedTest = TestOfflineController.selectedTest;
-		selectedSection = TestOfflineSectionController.selectedSection;
-		
-		sectionID = selectedSection.get("id");
-		//拿到这份卷子的总分, 名字
-		//totalPoint = selectedSection.get("totalPoint");
-		//name = selectedTest.get("exam_name");
+		System.out.println("selectedTest:" + selectedTest);
+		examID = selectedTest.get("id");
 		setupTable();
 		getList();
 		setupLabelandChart();
@@ -82,10 +77,7 @@ public class TestOfflineDetailController implements Initializable{
     @FXML void modifyButton() {
     	
     }
-    
-    @FXML void offlineSectionClicked() {
-    		loader.loadVBox(box, "/View/TestOfflineSection.fxml");
-    }
+   
     
     @FXML 
     void deleteButton() {
@@ -115,8 +107,9 @@ public class TestOfflineDetailController implements Initializable{
 		int oldLength = list.size();
 		int newLength;
 		System.out.println("importLength" + importLength);
+		String totalScore = selectedTest.get("totalPoint");
 		if(importlist!=null) {
-			if (dbHelper.insertOfflineTest(importlist, sectionID, totalPoint)) {
+			if (dbHelper.insertOfflineTest(importlist, examID, totalScore)) {
 				getList();
 				reload();
 				newLength = list.size();
@@ -159,11 +152,11 @@ public class TestOfflineDetailController implements Initializable{
     
 	private void getList() {
 		
-		String[] columns = {"offlineexam_history.section_id", "offlineexam_history.id as id", "user_primary_info.department", "user_primary_info.name", 
+		String[] columns = {"offlineexam_history.id as id", "user_primary_info.department", "user_primary_info.name", 
 				"user_primary_info.position", "user_primary_info.title", "user_primary_info.level", "offlineexam_history.finish_status as finish", 
 				"offlineexam_history.score as score", "offlineexam_list.totalPoint", "offlineexam_history.offlineexam_id"};
-		String[] searchColumns = {"offlineexam_history.section_id"};
-		String[] searchValues = {sectionID};
+		String[] searchColumns = {"offlineexam_history.offlineexam_id"};
+		String[] searchValues = {examID};
 		String table = "offlineexam_history inner join user_primary_info on offlineexam_history.ssn = user_primary_info.ssn "
 				+ "inner join offlineexam_list on offlineexam_history.offlineexam_id  = offlineexam_list.id";
 		

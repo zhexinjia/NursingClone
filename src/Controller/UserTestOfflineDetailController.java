@@ -13,10 +13,11 @@ import com.jfoenix.controls.JFXTextField;
 
 import Model.DBhelper;
 import Model.Loader;
-
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 
 public class UserTestOfflineDetailController implements Initializable {
@@ -24,34 +25,34 @@ public class UserTestOfflineDetailController implements Initializable {
 	@FXML VBox box;
 	
 	@FXML JFXTextField nameField;
-	@FXML JFXTextField supervisorField;
+	@FXML JFXTextField ssnField;
 	@FXML JFXTextField takenDateField;
-	@FXML JFXTextField scoreField;
+	@FXML JFXTextField advisorField;
+	@FXML JFXTextField totalScoreField;
 	
-	@FXML Label nameLabel;
-	@FXML Label supervisorLabel;
-	@FXML Label takenDateLabel;
-	@FXML Label scoreLabel;
-	@FXML Label commentLabel;
-	
-	@FXML JFXTextArea commentField;
+	@FXML TableView<HashMap<String,String>> tableView;
 	
 	private HashMap<String, String> report;
 	
-	ArrayList<HashMap<String, String>> scoreList;
-	HashMap<String, ArrayList<HashMap<String, String>>> departmentList = new HashMap<String, ArrayList<HashMap<String, String>>>();
-	HashMap<String, ArrayList<HashMap<String, String>>> levelList = new HashMap<String, ArrayList<HashMap<String, String>>>();
+	HashMap<String, String> scoreList;
+	ArrayList<HashMap<String, String>> reqList = new ArrayList<HashMap<String, String>>();	
+	//HashMap<String, ArrayList<HashMap<String, String>>> levelList = new HashMap<String, ArrayList<HashMap<String, String>>>();
 	ArrayList<HashMap<String, String>> departmentExportList;
 	ArrayList<HashMap<String, String>> levelExportList;
 	DBhelper dbHelper = new DBhelper();
 	Loader loader = new Loader();
+	
+	String[] keys = {"req", "point", "score"};
+	String[] fields = {"考核要求", "满分", "得分"};
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {		
-		report = TestOfflineDetailController.selectedUser;
+		report = TestOfflineDetailListController.selectedUser;
+		
 		System.out.println("report: " + report);
 		getList();
 		setup();
+		reload();
 		disableEdit();
 	}
 	
@@ -70,44 +71,88 @@ public class UserTestOfflineDetailController implements Initializable {
 
 	}
 	
+	@FXML
+	void offlineSectionClicked() {
+		loader.loadVBox(box, "/View/TestOfflineSection.fxml");
+	}
+	
+	
+	
 	void getList(){
 		String tableName = "offlineexam_history inner join user_primary_info on user_primary_info.ssn = offlineexam_history.ssn "
 				+ "where user_primary_info.branch = '" + LoginController.branch + "'" + "and offlineexam_history.id = '" + report.get("id") + "';";
-		String[] columns = {"offlineexam_history.score", "offlineexam_history.taken_date", "offlineexam_history.supervisor",
-				"offlineexam_history.comment"};
-		scoreList = dbHelper.getList(tableName, columns);
+		String[] columns = {"user_primary_info.ssn","offlineexam_history.score", "offlineexam_history.taken_date", "offlineexam_history.supervisor",
+				"offlineexam_history.score_list"};
+		scoreList = dbHelper.getList(tableName, columns).get(0);
 		System.out.println("scoreList: " + scoreList);
+		
+		
+		String req_table = "offline_req_bank where offline_req_bank.offlineexam_id = '" + report.get("offlineexam_id") + "';" ;
+		String[] req_col = {"offline_req_bank.req","offline_req_bank.point"};
+		reqList = dbHelper.getList(req_table, req_col);
+		System.out.println("reqList: " + reqList);
 	}
 	
 	void setup() {
 		nameField.setText(report.get("name"));
 		
-		String comment = scoreList.get(0).get("comment");
-		String supervisor = scoreList.get(0).get("supervisor");
-		String taken_date = scoreList.get(0).get("taken_date");
-		String score = scoreList.get(0).get("score");
+		String ssn = scoreList.get("ssn");
+		String supervisor = scoreList.get("supervisor");
+		String taken_date = scoreList.get("taken_date");
+		String totalScore = scoreList.get("score");
 		
-		if(comment != null) {
-			commentField.setText(comment);
+		if(ssn != null) {
+			ssnField.setText(ssn);
 		}
 		if (supervisor != null) {
-			supervisorField.setText(supervisor);
+			advisorField.setText(supervisor);
 		}
 		if (taken_date != null) {
 			takenDateField.setText(taken_date);
 		}
-		if (score != null) {
-			scoreField.setText(score);
+		if (totalScore != null) {
+			totalScoreField.setText(totalScore);
 		}
+		
+		loader.setupTable(tableView, keys, fields);
+		
+	}
+	
+	private void reload() {
+		ObservableList<HashMap<String, String>> searchList = loader.search(reqList, "");
+		System.out.println("searchList: " + searchList);
+		String score_list = scoreList.get("score_list");
+		String[] score_array = null;
+		try {
+			score_array = score_list.split("\\,", -1);
+		}catch (Exception e){
+			System.out.println(e);
+		}
+		
+		if (score_array != null) {
+			for (int i = 0; i < searchList.size(); i++) {
+				searchList.get(i).put("score", score_array[i]);
+			}
+		
+		}else {
+			for (int i = 0; i < searchList.size(); i++) {
+				searchList.get(i).put("score", "");
+			}
+		
+		}
+		System.out.println("searchList2: " + searchList);
+		System.out.println("@@: " + scoreList.get("score_list"));
+		tableView.setItems(searchList);
+		//countLabel.setText("共 " +searchList.size()+ " 条");
 	}
 	
 	void disableEdit() {
 		//Set all fields disable for any editing. 
 		nameField.setEditable(false);
-		supervisorField.setEditable(false);
+		ssnField.setEditable(false);
 		takenDateField.setEditable(false);
-		scoreField.setEditable(false);
-		commentField.setEditable(false);
+		totalScoreField.setEditable(false);
+		advisorField.setEditable(false);
 		
 	}
 	

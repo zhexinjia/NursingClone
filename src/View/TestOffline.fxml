@@ -159,6 +159,14 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </JFXButton>
+            <JFXButton layoutX="412.0" layoutY="10.0" onMouseClicked="#detailListClicked" prefHeight="27.0" prefWidth="92.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Heiti SC Light" size="14.0" />
+               </font>
+            </JFXButton>
             <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看/添加档期" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
