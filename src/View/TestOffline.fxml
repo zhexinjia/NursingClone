@@ -167,7 +167,7 @@
                   <Font name="Heiti SC Light" size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看/添加档期" textFill="WHITE">
+            <JFXButton layoutX="657.0" layoutY="10.0" onMouseClicked="#detailButton" prefHeight="27.0" prefWidth="113.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="添加考核时间" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

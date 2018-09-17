@@ -184,7 +184,15 @@
                                           <Insets bottom="20.0" right="10.0" />
                                        </HBox.margin>
                                     </JFXButton>
-                                    <JFXButton buttonType="RAISED" layoutX="554.0" layoutY="10.0" onMouseClicked="#deleteButton" prefWidth="57.0" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="删除" textFill="WHITE">
+                                    <JFXButton buttonType="RAISED" layoutX="477.0" layoutY="10.0" onMouseClicked="#cancelRegisterButton" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="取消报名" textFill="WHITE">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <HBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="554.0" layoutY="10.0" onMouseClicked="#deleteButton" prefWidth="57.0" style="-fx-background-color: #9a0d0d;" styleClass="jfxbutton-circle" text="删除" textFill="#e4e2e2">
                                        <effect>
                                           <DropShadow />
                                        </effect>

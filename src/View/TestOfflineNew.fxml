@@ -88,19 +88,15 @@
             </Label>
          </children>
       </HBox>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1500.0" style="-fx-background-color: #2b303e; -fx-font-size: 18;" text="新建实操考核" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="1500.0" style="-fx-background-color: #2b303e; -fx-font-size: 18;" text="实操考核设置" textFill="WHITE" VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <padding>
             <Insets bottom="10.0" top="10.0" />
          </padding></Label>
-      <VBox id="effectPane" alignment="CENTER" fillWidth="false" minHeight="-Infinity" minWidth="-Infinity">
+      <VBox id="effectPane" alignment="CENTER" fillWidth="false" VBox.vgrow="ALWAYS">
          <children>
-            <Label style="-fx-font-size: 24;" text="实操考核设置" textFill="#5a6378">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Label>
             <HBox alignment="CENTER">
                <children>
                   <Label alignment="CENTER_RIGHT" prefHeight="14.0" prefWidth="150.0" style="-fx-font-size: 16;" text="考核名称 ：" textAlignment="RIGHT" textFill="#8c95aa">
@@ -175,16 +171,25 @@
             </TableView>
             <HBox prefHeight="29.0" prefWidth="629.0">
                <children>
-                  <JFXTextField fx:id="inpuContentField" prefHeight="29.0" prefWidth="358.0" promptText="考核要点" style="-fx-border-color: #b7b7b7; -fx-border-radius: 3;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="inpuContentField" opacity="0.8" prefHeight="29.0" prefWidth="358.0" promptText="考核要点" style="-fx-border-color: #b7b7b7; -fx-border-radius: 3;" unFocusColor="WHITE">
                      <HBox.margin>
                         <Insets left="40.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
                   </JFXTextField>
                   <Pane prefHeight="29.0" prefWidth="10.0" />
-                  <JFXTextField fx:id="inputPointField" prefHeight="29.0" prefWidth="60.0" promptText="分值" style="-fx-border-color: #b7b7b7; -fx-border-radius: 3;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="inputPointField" opacity="0.8" prefHeight="29.0" prefWidth="60.0" promptText="分值" style="-fx-border-color: #b7b7b7; -fx-border-radius: 3;" unFocusColor="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
                   </JFXTextField>
                   <Button mnemonicParsing="false" onMouseClicked="#addButtonClicked" prefWidth="60.0" text="添加">
                      <opaqueInsets>
@@ -194,10 +199,10 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#deleteRowClicked" prefWidth="60.0" style="-fx-background-color: #f87979;" text="删除" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onMouseClicked="#deleteRowClicked" prefWidth="60.0" style="-fx-background-color: #9a0d0d;" text="删除" textFill="WHITE" />
                </children>
                <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets bottom="15.0" top="5.0" />
                </VBox.margin>
             </HBox>
          </children>
@@ -208,7 +213,7 @@
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </VBox.margin>
       </VBox>
-      <JFXButton buttonType="RAISED" onMouseClicked="#createButton" prefHeight="31.0" prefWidth="400.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="创建考核" textFill="WHITE">
+      <JFXButton buttonType="RAISED" onMouseClicked="#createButton" prefHeight="31.0" prefWidth="400.0" style="-fx-background-color: #526182; -fx-font-size: 18;" text="创建考核" textFill="WHITE" VBox.vgrow="ALWAYS">
          <effect>
             <DropShadow blurType="ONE_PASS_BOX" color="#c1c6d3" offsetX="5.0" offsetY="5.0" spread="0.6" />
          </effect>

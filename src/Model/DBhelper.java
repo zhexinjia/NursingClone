@@ -557,7 +557,7 @@ public class DBhelper {
 		return sql;
 	}
 	
-	public boolean insertOfflineTest(ArrayList<HashMap<String, String>> maplist, String exam_id, String totalSocre) {
+	public boolean insertOfflineTest(ArrayList<HashMap<String, String>> maplist, String exam_id, String exam_name, String totalScore) {
 	//	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		//LocalDate localDate = LocalDate.now();
 		String sql = "sql=";
@@ -565,6 +565,7 @@ public class DBhelper {
 		for (HashMap<String, String> user : maplist){
 			System.out.println(user);
 			String scoreTemp = user.get("score");
+			String date = user.get("taken_date");
 			int score = 0;
 			try {
 				score = Integer.parseInt(scoreTemp);
@@ -577,10 +578,10 @@ public class DBhelper {
 			sql += insertHistoryHelper(user, exam_id, "offlineTest");
 			
 			sql += "update user_score set currentScore = (currentScore %2B " 
-			+ score + "), totalScore = (totalScore %2B " + totalSocre + ") where ssn = '" + ssn + "';";
+			+ score + "), totalScore = (totalScore %2B " + totalScore + ") where ssn = '" + ssn + "';";
 			
-			//sql += "update user_score set comment = concat(ifnull(comment,''), '" 
-			//+ ":" + name + " 实操考核得 " + score + " 分,') where ssn = '" + ssn + "';";
+			sql += "update user_score set comment = concat(ifnull(comment,''), '" + date +
+			 ":" + exam_name + " 实操考核得 " + score + " 分,') where ssn = '" + ssn + "' ;";
 		}
 		
 		System.out.println(sql);
@@ -809,6 +810,24 @@ public class DBhelper {
 		return false;
 	}
 	
+	
+	public boolean cancelRegister(HashMap<String, String> map) {
+		String sql= "sql=";
+		String his_id = map.get("id");
+		String section_id = map.get("section_id");
+		sql += "update offlineexam_history set section_id = '', QR_code = '' where id = '" + his_id + "';";
+		sql += "update offline_section set sign_in = (sign_in - 1) where id = '" + section_id + "';";
+		System.out.println("cancelRegister1: " + sql);
+		if(sendPost(urlSend, sql)) {
+			System.out.println("cancelRegister2: " + sql);
+			//success();
+			return true;
+		}
+		System.out.println(sql);
+		//fail();
+		return false;
+		
+	}
 	
 	/****************************************************************************/
 

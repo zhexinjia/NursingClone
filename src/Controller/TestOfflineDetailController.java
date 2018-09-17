@@ -35,8 +35,8 @@ public class TestOfflineDetailController implements Initializable{
 	ArrayList<HashMap<String, String>> list;
 	public static HashMap<String, String> selectedUser;
 	
-	String[] keys = {"name", "ssn", "taken_date", "supervisor", "finish_status", "score", "comment"};
-    String[] fields = {"名字", "工号", "考核时间", "监考人", "是否完成", "得分", "备注"};
+	String[] keys = { "ssn", "name", "section_id", "finish_status","score_list", "score", "comment", "taken_date"};
+    String[] fields = {"工号", "名字", "档期编号", "是否完成", "得分情况", "总得分","备注", "考核日期"};
 
     String name;
 	@Override
@@ -115,8 +115,10 @@ public class TestOfflineDetailController implements Initializable{
 		int oldLength = list.size();
 		int newLength;
 		System.out.println("importLength" + importLength);
+		String exam_name = selectedTest.get("exam_name");
+		String totalScore = selectedTest.get("totalPoint");
 		if(importlist!=null) {
-			if (dbHelper.insertOfflineTest(importlist, sectionID, totalPoint)) {
+			if (dbHelper.insertOfflineTest(importlist, sectionID, exam_name, totalScore)) {
 				getList();
 				reload();
 				newLength = list.size();

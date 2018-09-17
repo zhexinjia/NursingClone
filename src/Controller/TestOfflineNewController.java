@@ -53,6 +53,7 @@ public class TestOfflineNewController implements Initializable {
 		setupTable();
 		reload();
 		//getList();
+
 		
 	}
 	
@@ -83,13 +84,18 @@ public class TestOfflineNewController implements Initializable {
     		//ArrayList<TableColumn<HashMap<String, String>, String>> cols = new ArrayList<TableColumn<HashMap<String, String>, String>>();
     		String req  = inpuContentField.getText();
     		String point = inputPointField.getText();
-    		
     		HashMap<String, String> tst = new HashMap<String, String>();
-		tst.put("req", req);
-		tst.put("point", point);
-		req_list.add(tst);
-		inpuContentField.clear();
-		inputPointField.clear();
+    		if (isNum(point)) {
+    			tst.put("req", req);
+    			tst.put("point", point);
+    			req_list.add(tst);
+    			inpuContentField.clear();
+    			inputPointField.clear();
+    		}else {
+    			PopupWindow pop = new PopupWindow();
+    			pop.alertWindow("添加失败", "分值选项必须是数字。");
+    		}
+		
 		
     }
     
@@ -105,6 +111,15 @@ public class TestOfflineNewController implements Initializable {
     }
     
     
+    
+    private boolean isNum(String str) {
+    		try {
+    			Integer.parseInt(str);
+    			return true;
+    		}catch(NumberFormatException e) {
+    			return false;
+    		}
+    }
     
     
     private void setupTable() {

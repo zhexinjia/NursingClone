@@ -102,60 +102,6 @@
       </HBox>
       <JFXTabPane VBox.vgrow="ALWAYS">
          <tabs>
-            <Tab text="考核分析">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox prefHeight="250.0" prefWidth="250.0">
-                                 <children>
-                                    <Pane id="raisedPane-one" prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="考核完成率" textFill="WHITE" />
-                                          <Label fx:id="finishPercent" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="80.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
-                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="30.0" right="30.0" top="30.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane id="raisedPane-two" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="及格率" textFill="WHITE" />
-                                          <Label fx:id="passPercent" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="93.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
-                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Pane id="raisedPane-three" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="平均分" textFill="WHITE" />
-                                          <Label fx:id="average" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="92.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
-                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets bottom="70.0" left="30.0" right="30.0" top="10.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                 </children>
-                              </VBox>
-                              <PieChart id="effectPane" fx:id="pieChart" title="成绩分布图（百分比）" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets bottom="60.0" left="20.0" right="40.0" top="20.0" />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets top="30.0" />
-                                 </padding>
-                              </PieChart>
-                           </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
             <Tab text="考核详情">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -228,6 +174,60 @@
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="考核分析">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox prefHeight="250.0" prefWidth="250.0">
+                                 <children>
+                                    <Pane id="raisedPane-one" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="考核完成率" textFill="WHITE" />
+                                          <Label fx:id="finishPercent" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="80.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
+                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane id="raisedPane-two" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="及格率" textFill="WHITE" />
+                                          <Label fx:id="passPercent" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="93.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
+                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane id="raisedPane-three" layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="131.0" style="-fx-font-size: 16;" text="平均分" textFill="WHITE" />
+                                          <Label fx:id="average" layoutX="57.0" layoutY="78.0" prefHeight="34.0" prefWidth="92.0" style="-fx-font-size: 22;" text="0" textFill="WHITE" />
+                                          <Separator layoutX="35.0" layoutY="67.0" prefHeight="3.0" prefWidth="140.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="70.0" left="30.0" right="30.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                              <PieChart id="effectPane" fx:id="pieChart" title="成绩分布图（百分比）" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="60.0" left="20.0" right="40.0" top="20.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets top="30.0" />
+                                 </padding>
+                              </PieChart>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
          </tabs>
       </JFXTabPane>

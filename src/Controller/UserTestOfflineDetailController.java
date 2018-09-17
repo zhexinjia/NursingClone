@@ -46,10 +46,13 @@ public class UserTestOfflineDetailController implements Initializable {
 	String[] fields = {"考核要求", "满分", "得分"};
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {		
+	public void initialize(URL location, ResourceBundle resources) {	
+		// 
 		report = TestOfflineDetailListController.selectedUser;
-		
-		System.out.println("report: " + report);
+		if (report == null) {
+			report = TestOfflineDetailController.selectedUser;
+		}
+		//System.out.println("report: " + report);
 		getList();
 		setup();
 		reload();
@@ -84,13 +87,13 @@ public class UserTestOfflineDetailController implements Initializable {
 		String[] columns = {"user_primary_info.ssn","offlineexam_history.score", "offlineexam_history.taken_date", "offlineexam_history.supervisor",
 				"offlineexam_history.score_list"};
 		scoreList = dbHelper.getList(tableName, columns).get(0);
-		System.out.println("scoreList: " + scoreList);
+		//System.out.println("scoreList: " + scoreList);
 		
 		
 		String req_table = "offline_req_bank where offline_req_bank.offlineexam_id = '" + report.get("offlineexam_id") + "';" ;
 		String[] req_col = {"offline_req_bank.req","offline_req_bank.point"};
 		reqList = dbHelper.getList(req_table, req_col);
-		System.out.println("reqList: " + reqList);
+		//System.out.println("reqList: " + reqList);
 	}
 	
 	void setup() {
@@ -124,7 +127,7 @@ public class UserTestOfflineDetailController implements Initializable {
 		String score_list = scoreList.get("score_list");
 		String[] score_array = null;
 		try {
-			score_array = score_list.split("\\,", -1);
+			score_array = score_list.split("\\,|，", -1);
 		}catch (Exception e){
 			System.out.println(e);
 		}
@@ -140,8 +143,7 @@ public class UserTestOfflineDetailController implements Initializable {
 			}
 		
 		}
-		System.out.println("searchList2: " + searchList);
-		System.out.println("@@: " + scoreList.get("score_list"));
+		
 		tableView.setItems(searchList);
 		//countLabel.setText("共 " +searchList.size()+ " 条");
 	}

@@ -44,7 +44,7 @@
                   <Image url="/rightArrow.png" />
                </image>
             </ImageView>
-            <Label onMouseClicked="#TestOfflineListButton" prefHeight="34.0" prefWidth="56.0" text="考核列表" textFill="WHITE">
+            <Label onMouseClicked="#TestOfflineListButton" prefHeight="34.0" text="实操考核列表" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

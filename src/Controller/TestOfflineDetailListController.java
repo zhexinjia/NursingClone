@@ -34,8 +34,8 @@ public class TestOfflineDetailListController implements Initializable{
 	ArrayList<HashMap<String, String>> list;
 	public static HashMap<String, String> selectedUser;
 	
-	String[] keys = { "ssn", "name", "section_id", "finish_status","score_list", "score", "comment"};
-    String[] fields = {"工号", "名字", "档期编号", "是否完成", "得分情况", "总得分","备注"};
+	String[] keys = { "ssn", "name", "section_id", "finish_status","score_list", "score", "comment", "taken_date"};
+    String[] fields = {"工号", "名字", "档期编号", "是否完成", "得分情况", "总得分","备注", "考核日期"};
 
     String name;
 	@Override
@@ -74,6 +74,18 @@ public class TestOfflineDetailListController implements Initializable{
     		}
     }
     
+    @FXML 
+    void cancelRegisterButton() {
+    		selectedUser = tableView.getSelectionModel().getSelectedItem();
+		if(selectedUser != null) {
+			dbHelper.cancelRegister(selectedUser);
+		}else {
+			PopupWindow pop = new PopupWindow();
+			pop.alertWindow("查看失败", "请选中一个用户");
+		}
+    		
+    }
+    
     @FXML void modifyButton() {
     	
     }
@@ -107,9 +119,11 @@ public class TestOfflineDetailListController implements Initializable{
 		int oldLength = list.size();
 		int newLength;
 		System.out.println("importLength" + importLength);
+		String exam_name = selectedTest.get("exam_name");
 		String totalScore = selectedTest.get("totalPoint");
+		
 		if(importlist!=null) {
-			if (dbHelper.insertOfflineTest(importlist, examID, totalScore)) {
+			if (dbHelper.insertOfflineTest(importlist, examID, exam_name, totalScore)) {
 				getList();
 				reload();
 				newLength = list.size();
@@ -154,7 +168,7 @@ public class TestOfflineDetailListController implements Initializable{
 		
 		String[] columns = {"offlineexam_history.id as id", "user_primary_info.department", "user_primary_info.name", 
 				"user_primary_info.position", "user_primary_info.title", "user_primary_info.level", "offlineexam_history.finish_status as finish", 
-				"offlineexam_history.score as score", "offlineexam_list.totalPoint", "offlineexam_history.offlineexam_id"};
+				"offlineexam_history.score as score", "offlineexam_list.totalPoint", "offlineexam_history.offlineexam_id", "offlineexam_history.section_id"};
 		String[] searchColumns = {"offlineexam_history.offlineexam_id"};
 		String[] searchValues = {examID};
 		String table = "offlineexam_history inner join user_primary_info on offlineexam_history.ssn = user_primary_info.ssn "

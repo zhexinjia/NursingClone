@@ -91,6 +91,10 @@ public class TestOfflineSectionNewController implements Initializable {
     		loader.loadVBox(box, "/View/TestOffline.fxml");
     }
     
+    @FXML void offlineSectionClicked() {
+    		loader.loadVBox(box, "/View/TestOfflineSection.fxml");
+    }
+    
     @FXML void createButton() {
     		if(validate()) {
     			insertDB();
@@ -135,6 +139,8 @@ public class TestOfflineSectionNewController implements Initializable {
      	nameField4.clear();
      	userID_4 = null;
     }
+    
+    
     
     private void setupChoiceBox() {
     		Integer[] array = new Integer[101];
