@@ -158,12 +158,12 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="结束时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                              <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="开始时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
                                  <HBox.margin>
                                     <Insets bottom="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <JFXTimePicker fx:id="endTimePicker" defaultColor="#62baf0" prefHeight="27.0" prefWidth="200.0">
+                              <JFXTimePicker fx:id="startTimePicker" defaultColor="#62baf0" prefHeight="27.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
@@ -175,12 +175,12 @@
                         </HBox>
                         <HBox alignment="CENTER">
                            <children>
-                              <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="开始时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                              <Label alignment="CENTER_RIGHT" prefWidth="150.0" style="-fx-font-size: 16;" text="结束时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
                                  <HBox.margin>
                                     <Insets bottom="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                               </Label>
-                              <JFXTimePicker fx:id="startTimePicker" defaultColor="#62baf0" prefHeight="27.0" prefWidth="200.0">
+                              <JFXTimePicker fx:id="endTimePicker" defaultColor="#62baf0" prefHeight="27.0" prefWidth="200.0">
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </HBox.margin>
