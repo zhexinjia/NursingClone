@@ -5,7 +5,9 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
@@ -119,14 +121,17 @@
                               </VBox>
                               <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <PieChart id="effectPane" fx:id="pieChart" title="成绩分布图" VBox.vgrow="ALWAYS">
+                                    <BarChart fx:id="barChart" stylesheets="@record.css" VBox.vgrow="ALWAYS">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="yAxis" side="LEFT" />
+                                       </yAxis>
                                        <VBox.margin>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+                                          <Insets bottom="15.0" right="20.0" top="20.0" />
                                        </VBox.margin>
-                                       <padding>
-                                          <Insets bottom="10.0" top="10.0" />
-                                       </padding>
-                                    </PieChart>
+                                    </BarChart>
                                     <JFXButton buttonType="RAISED" onMouseClicked="#detailButton" style="-fx-background-color: #5a6378;" styleClass="jfxbutton-circle" text="查看详情" textFill="WHITE">
                                        <VBox.margin>
                                           <Insets bottom="20.0" right="20.0" />

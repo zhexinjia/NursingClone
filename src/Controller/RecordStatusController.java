@@ -15,7 +15,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
@@ -24,6 +28,11 @@ public class RecordStatusController implements Initializable {
 
 	@FXML VBox box;
 	@FXML PieChart pieChart;
+	
+	@FXML BarChart<String, Integer> barChart;
+	@FXML CategoryAxis xAxis;
+	@FXML NumberAxis yAxis;
+	
 	@FXML Label averageField;
 	@FXML Label highestField;
 	@FXML Label lowestField;
@@ -59,6 +68,7 @@ public class RecordStatusController implements Initializable {
 		if (branch.equals("护理")) {
 			setupLevelPicker();
 		}	
+		setupBarChart();
 	}
 	@FXML void detailButton() {
 		loader.loadVBox(box, "/View/RecordList.fxml");
@@ -94,6 +104,8 @@ public class RecordStatusController implements Initializable {
 				"user_primary_info.department", "user_primary_info.level", "user_primary_info.position"};
 		scoreList = dbHelper.getList(tableName, columns);
 	}
+	
+	
 	void caculatePercent() {
 		Double highest = (double) 0;
 		Double lowest = (double) 1;
@@ -179,7 +191,7 @@ public class RecordStatusController implements Initializable {
 		averageField.setText(df.format(ave*100));
 		lowestField.setText(df.format(lowest*100) + "%");
 		highestField.setText(df.format(highest*100) + "%");
-		setupChart(countArray);
+		//setupChart(countArray);
 	}
 	
 	void setupDepartmentPicker() {
@@ -299,6 +311,61 @@ public class RecordStatusController implements Initializable {
 		}
 		pieChart.getData().setAll(pieChartData);
 	}
+	
+	
+	private void setupBarChart() {
+		System.out.println("scoreList " + scoreList);
+		double max = 0.0, min = 0.0;
+		double current;
+		
+		for (HashMap<String, String>user : scoreList) {
+				current = Double.parseDouble(user.get("currentScore"));
+			if (current > max) {
+				max = current;
+			}
+			if (current < min) {
+				min = current;
+			}
+		}
+
+		int upperBound = (int) Math.round(max) + 10;
+		
+		//setup x-axis
+		int temp = upperBound / 10;
+		System.out.println("temp: " + temp);
+		ObservableList<String> scoreNames = FXCollections.observableArrayList();
+		for (int i = temp; i <= upperBound; i+=temp) {
+			String str;
+			if (i == temp) {
+				str = "0 - " + Integer.toString(i);
+			}else {
+				str = (i - temp) + " - " + Integer.toString(i);
+			}
+			
+			scoreNames.add(str);
+		}
+		
+		xAxis.setCategories(scoreNames);
+		
+		//calculate number of people in each range
+		int [] peopleCount = new int[10];
+		double currentPerson;
+		for (HashMap<String, String>user : scoreList) {
+			currentPerson = Double.parseDouble(user.get("currentScore"));
+			int tp = (int) (currentPerson / temp);
+			peopleCount[tp]++;
+		}
+		
+		
+		XYChart.Series<String, Integer> series = new XYChart.Series<>();
+		for (int i = 0; i < peopleCount.length; i++) {
+            series.getData().add(new XYChart.Data<>(scoreNames.get(i), peopleCount[i]));
+        }
+		
+        barChart.getData().add(series);
+	}
+	
+		
 
 }
 
