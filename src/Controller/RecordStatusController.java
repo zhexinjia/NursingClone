@@ -1,4 +1,4 @@
-package Controller;
+﻿package Controller;
 
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -311,6 +311,7 @@ public class RecordStatusController implements Initializable {
 		}
 		pieChart.getData().setAll(pieChartData);
 	}
+	
 	
 	
 	private void setupBarChart() {
