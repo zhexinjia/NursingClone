@@ -523,6 +523,7 @@ public class BankModifyController implements Initializable {
 		});
 		box.single(inputMap);
     }
+    
     private void tfPopUp(HashMap<String, String> inputMap) {
     		QuestionBox box = new QuestionBox();
 		box.confirmButton.setOnAction(e->{

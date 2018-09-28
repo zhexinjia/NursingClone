@@ -96,6 +96,16 @@ public class MainController implements Initializable {
     void openScheduleList() {
     		loadVBox("/View/ScheduleList.fxml");
     }
+    
+    @FXML
+    void openScheduleSetting() {
+    		loadVBox("/View/ScheduleSetting.fxml");
+    }
+    
+    @FXML
+    void openScheduleStatus() {
+    		loadVBox("/View/ScheduleStatus.fxml");
+    }
 
     @FXML
     void openScheduleManagement() {

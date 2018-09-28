@@ -39,6 +39,9 @@ public class QuestionBox {
 	public CheckBox op5;
 	
 	
+	public TextField nameField = new TextField();
+	public TextField shift_lengthField = new TextField();
+	public TextField shift_pointField = new TextField();
 
 	public ToggleGroup group;
 	
@@ -290,4 +293,77 @@ public class QuestionBox {
 		stage.setResizable(true);
 		stage.show();		
 	}
+	
+	public void scheduleNew(HashMap<String, String> map) {
+		
+		//TextField nameField = new TextField();
+		//TextField shift_lengthField = new TextField();
+
+						
+		if(map!=null) {
+			nameField.setText(map.get("name"));
+			shift_lengthField.setText(map.get("shift_length"));	
+			shift_pointField.setText(map.get("shift_point"));
+		}	
+		
+		Label nameLabel = new Label("排班名称: ");
+		nameLabel.setTextFill(Color.WHITE);
+		HBox hbox1 = new HBox();
+		HBox.setMargin(nameLabel, new Insets(0, 20, 0, 20));
+		HBox.setMargin(nameField, new Insets(0, 10, 0, 10));
+		hbox1.getChildren().addAll(nameLabel, nameField);
+		
+		Label shift_lengthLabel = new Label("工作时长: ");
+		Label hour = new Label("小时");
+		shift_lengthLabel.setTextFill(Color.WHITE);
+		hour.setTextFill(Color.WHITE);
+		HBox hbox2 = new HBox();
+		HBox.setMargin(shift_lengthLabel, new Insets(0, 20, 0, 20));
+		HBox.setMargin(shift_lengthField, new Insets(0, 10, 0, 10));
+		HBox.setMargin(hour, new Insets(10, 0, 0, 0));
+		hbox2.getChildren().addAll(shift_lengthLabel, shift_lengthField, hour);
+		
+		Label shift_pointLabel = new Label("工作分值: ");
+		shift_pointLabel.setTextFill(Color.WHITE);
+		HBox hbox3 = new HBox();
+		HBox.setMargin(shift_pointLabel, new Insets(0, 20, 0, 20));
+		HBox.setMargin(shift_pointField, new Insets(0, 10, 0, 10));
+		
+		hbox3.getChildren().addAll(shift_pointLabel, shift_pointField);
+				
+				
+				
+		stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setWidth(600);
+		stage.setHeight(400);
+		stage.setTitle("新建排班设置");
+		VBox vbox = new VBox();
+		vbox.setAlignment(Pos.CENTER);
+		vbox.setPadding(new Insets(0, 20, 0, 20));
+					
+		confirmButton.setPrefWidth(250);
+		confirmButton.setStyle("-fx-background-color: #62baf0");
+		/*
+		Label label = new Label("新建判断题");
+		label.setFont(new Font("Arial", 30));
+		label.setTextFill(Color.WHITE);
+		VBox.setMargin(label, new Insets(0, 30, 50, 30));
+		*/
+		VBox.setMargin(hbox1, new Insets(0, 30, 30, 30));
+		VBox.setMargin(hbox2, new Insets(0, 30, 30, 30));
+		VBox.setMargin(hbox3, new Insets(0, 30, 30, 30));
+		VBox.setMargin(confirmButton, new Insets(20, 20, 20, 20));
+		vbox.getChildren().addAll(hbox1, hbox2, hbox3, confirmButton);
+		vbox.setStyle("-fx-background-color: #393f4f");
+				
+		Scene scene = new Scene(vbox);
+		scene.getStylesheets().add("/View/application.css");
+		stage.setScene(scene);
+		stage.setResizable(true);
+		stage.show();
+		
+		}
+	
+	
 }
