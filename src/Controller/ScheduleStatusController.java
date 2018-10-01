@@ -36,21 +36,16 @@ public class ScheduleStatusController implements Initializable {
 	@FXML Label averageField;
 	@FXML Label highestField;
 	@FXML Label lowestField;
-	@FXML Label departmentHighest;
-	@FXML Label departmentLowest;
-	@FXML Label departmentAverage;
+
 	@FXML JFXComboBox<String> departmentPicker;
 	@FXML TableView<HashMap<String, String>> departmentTableView;
 	
-	@FXML Label levelAvg;
-	@FXML Label levelHighest;
-	@FXML Label levelLowest;
-	@FXML JFXComboBox<String> levelPicker;
-	@FXML TableView<HashMap<String, String>> levelTableView;
 	
-	ArrayList<HashMap<String, String>> scoreList;
+	ArrayList<HashMap<String, String>> userList;
+	ArrayList<HashMap<String, String>> scheduleItemList;
+	
 	HashMap<String, ArrayList<HashMap<String, String>>> departmentList = new HashMap<String, ArrayList<HashMap<String, String>>>();
-	HashMap<String, ArrayList<HashMap<String, String>>> levelList = new HashMap<String, ArrayList<HashMap<String, String>>>();
+	
 	ArrayList<HashMap<String, String>> departmentExportList;
 	ArrayList<HashMap<String, String>> levelExportList;
 	DBhelper dbHelper = new DBhelper();
@@ -59,16 +54,13 @@ public class ScheduleStatusController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {		
-		setupDepartmentTable();
-		setupLevelTable();
 		getList();
+		setupDepartmentTable();
+		
 		caculatePercent();
 		setupDepartmentPicker();
-		System.out.println(branch);
-		if (branch.equals("护理")) {
-			setupLevelPicker();
-		}	
-		setupBarChart();
+			
+		//setupBarChart();
 	}
 	@FXML void detailButton() {
 		loader.loadVBox(box, "/View/RecordList.fxml");
@@ -90,19 +82,42 @@ public class ScheduleStatusController implements Initializable {
 		loader.exportExcel(departmentExportList, fieldlist, keylist);
 	}
 	
-	@FXML 
-	void exportlevelButton(){
-		String[] fieldlist = {"姓名", "科室", "职位", "得分"};
-		String[] keylist = {"name", "department", "position", "currentScore"};
-		loader.exportExcel(levelExportList, fieldlist, keylist);
-	}
 	
 	void getList(){
-		String tableName = "user_score inner join user_primary_info on user_primary_info.ssn = user_score.ssn "
+		
+		String tableName = " user_primary_info "
 				+ "where user_primary_info.branch = '" + LoginController.branch + "'";
-		String[] columns = {"user_score.totalScore", "user_score.currentScore", "user_primary_info.name",
-				"user_primary_info.department", "user_primary_info.level", "user_primary_info.position"};
-		scoreList = dbHelper.getList(tableName, columns);
+		String[] columns = {"user_primary_info.name", "user_primary_info.ssn",
+				"user_primary_info.department", "user_primary_info.position"};
+		userList = dbHelper.getList(tableName, columns);
+		
+		
+		String[] item_columns = new String[] {"schedule_list.*"};
+		String item_tableName = "schedule_list where schedule_list.branch = '" + LoginController.branch + "';"; 
+		scheduleItemList = dbHelper.getList(item_tableName, item_columns);
+		System.out.println("scheduleItemList" + scheduleItemList);
+		
+		
+		ArrayList<HashMap<String, String>> itemList = null;
+		for (int i=0; i < scheduleItemList.size(); i++) {
+			itemList = dbHelper.getScheduleHours(i);
+			
+			for (int j = 0; j < userList.size(); j++) {
+				for (int z = 0; z < itemList.size(); z++) {
+					HashMap<String, String> tempp = itemList.get(z);
+					if (userList.get(j).get("ssn").equals(tempp.get("ssn"))) {
+						String a = "sectionName"+i;
+						userList.get(j).put(a, tempp.get(a));
+					}
+				}
+					
+			}
+			
+			
+		}
+		System.out.println("itemList: " + itemList);
+		System.out.println("userList: " + userList);
+		
 	}
 	
 	
@@ -112,7 +127,8 @@ public class ScheduleStatusController implements Initializable {
 		int[] countArray = {0, 0, 0, 0, 0};
 		double sum = 0;
  		//HashMap<String, ArrayList<HashMap<String, String>>> departmentList = new HashMap<String, ArrayList<HashMap<String, String>>>();
-		for(HashMap<String, String> score:scoreList) {
+		for(HashMap<String, String> score:userList) {
+			/*
 			double currentScore = Double.parseDouble(score.get("currentScore"));
 			double totalScore = Double.parseDouble(score.get("totalScore"));
 			double percent;
@@ -159,6 +175,7 @@ public class ScheduleStatusController implements Initializable {
 					countArray[4]++;
 				}
 			}
+			*/
 			String department = score.get("department");
 			if(department!=null) {
 				ArrayList<HashMap<String, String>> list;
@@ -170,28 +187,17 @@ public class ScheduleStatusController implements Initializable {
 				list.add(score);
 				departmentList.put(department, list);
 			}
-			//TESTING
 			
-			String level = score.get("level");
-			if(level!=null) {
-				ArrayList<HashMap<String, String>> list;
-				if(levelList.get(level)==null) {
-					list = new ArrayList<HashMap<String, String>>();
-				}else {
-					list = levelList.get(level);
-				}
-				list.add(score);
-				levelList.put(level, list);
-			}
-			
-			//END TESTING
 		}
-		Double ave = sum/scoreList.size();
+		/*
+		Double ave = sum/userList.size();
 		DecimalFormat df = new DecimalFormat("#.##");
 		averageField.setText(df.format(ave*100));
 		lowestField.setText(df.format(lowest*100) + "%");
 		highestField.setText(df.format(highest*100) + "%");
 		//setupChart(countArray);
+		 * 
+		 */
 	}
 	
 	void setupDepartmentPicker() {
@@ -201,46 +207,27 @@ public class ScheduleStatusController implements Initializable {
 		departmentPicker.setOnAction(e->{
 			loadDepartmentTable(departmentPicker.getSelectionModel().getSelectedItem());
 		});
+		//System.out.println("departmentList: " + departmentList);
 		String firstDepartment = keyset.iterator().next();
 		//init default display
 		departmentPicker.setValue(firstDepartment);
 		loadDepartmentTable(firstDepartment);
 		
 	}
-	void setupLevelPicker() {
-		Set<String> keyset = levelList.keySet();
-		System.out.println("Level keyset: " + keyset);
-		levelPicker.getItems().setAll(keyset);
-		levelPicker.setOnAction(e->{
-			loadLevelTable(levelPicker.getSelectionModel().getSelectedItem());
-		});
-		String firstLevel = keyset.iterator().next();
-		//init default display
-		levelPicker.setValue(firstLevel);
-		loadLevelTable(firstLevel);
-	}
+
 	
 	private void loadDepartmentTable(String department) {
 		if(department != null) {
 			ArrayList<HashMap<String, String>> list = departmentList.get(department);
 			ObservableList<HashMap<String, String>> searchList = loader.search(list, "");
 			departmentTableView.setItems(searchList);
-			//System.out.println("list: " + list);
-			//System.out.println("search list: " + searchList);
+			
 			departmentExportList = list;
-			caculateDepartment(list);
+			//caculateDepartment(list);
 		}
 	}
 	
-	private void loadLevelTable(String level) {
-		if (level != null) {
-			ArrayList<HashMap<String, String>> list = levelList.get(level);
-			ObservableList<HashMap<String, String>> searchList = loader.search(list, "");
-			levelTableView.setItems(searchList);
-			levelExportList = list;
-			calculateLevel(list);
-		}
-	}
+
 	
 	private void caculateDepartment(ArrayList<HashMap<String, String>> list) {
 		Double total = (double) 0;
@@ -259,67 +246,40 @@ public class ScheduleStatusController implements Initializable {
 		}
 		Double average = total/list.size();
 		DecimalFormat df = new DecimalFormat("#.##");
-		departmentAverage.setText(df.format(average));
-		departmentHighest.setText(df.format(high));
-		departmentLowest.setText(df.format(low));
-	}
-	
-	
-	private void calculateLevel(ArrayList<HashMap<String, String>> list) {
-		//System.out.println("list is : "+list);
-		Double total = (double) 0;
-		Double low = list.size()!=0?(double)Double.parseDouble(list.get(0).get("currentScore")):0;
-		Double high = list.size()!=0?(double)Double.parseDouble(list.get(0).get("currentScore")):0;
-		for(HashMap<String, String> map:list) {
-			//Double current = map.get("percent").equals("NaN")?100:Double.parseDouble(map.get("percent"));
-			Double current = Double.parseDouble(map.get("currentScore"));
-			System.out.println("map: "+map);
-			total+=current;
-			if(current > high) {
-				 high = current;
-			}
-			if(current < low) {
-				low = current;
-			}
-		}
-		Double average = total/list.size();
-		DecimalFormat df = new DecimalFormat("#.##");
-		levelAvg.setText(df.format(average));
-		levelHighest.setText(df.format(high));
-		levelLowest.setText(df.format(low));
-	}
-	
-	private void setupDepartmentTable() {
-		String[] keys = {"name", "position", "level", "currentScore"};
-		String[] fields = {"姓名", "职位", "层级", "得分"};
-		//System.out.println("dTV: "+ departmentTableView);
-		loader.setupTable(departmentTableView, keys, fields);
 
 	}
 	
-	private void setupLevelTable() {
-		String[] keys = {"name", "department", "position", "currentScore"};
-		String[] fields = {"姓名", "科室", "职位", "得分"};
-		loader.setupTable(levelTableView, keys, fields);
-	}
+
+	private void setupDepartmentTable() {
+		
+		ArrayList<String> keys = new ArrayList<String>();
+		ArrayList<String> fields = new ArrayList<String>();	
+		keys.add("name");
+		keys.add("position");
+		fields.add("姓名");
+		fields.add("职位");
+		
 	
-	private void setupChart(int[] countArray) {
-		String[] infoArray = {"低于60", "60-69", "70-79", "80-89", "90-100"};
-		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-		for (int i = 0; i< 5; i++) {
-			pieChartData.add(new PieChart.Data(infoArray[i], countArray[i]));
+		for (int i = 0; i < scheduleItemList.size(); i++) {
+			String temp = "sectionName" + i;
+			keys.add(temp);
+			fields.add(scheduleItemList.get(i).get("name"));
 		}
-		pieChart.getData().setAll(pieChartData);
+		
+		String[] arr = keys.toArray(new String[keys.size()]);
+		String[] array = fields.toArray(new String[fields.size()]);
+		
+		loader.setupTable(departmentTableView, arr, array);
+
 	}
-	
-	
+
 	
 	private void setupBarChart() {
-		System.out.println("scoreList " + scoreList);
+		System.out.println("scoreList " + userList);
 		double max = 0.0, min = 0.0;
 		double current;
 		
-		for (HashMap<String, String>user : scoreList) {
+		for (HashMap<String, String>user : userList) {
 				current = Double.parseDouble(user.get("currentScore"));
 			if (current > max) {
 				max = current;
@@ -351,7 +311,7 @@ public class ScheduleStatusController implements Initializable {
 		//calculate number of people in each range
 		int [] peopleCount = new int[10];
 		double currentPerson;
-		for (HashMap<String, String>user : scoreList) {
+		for (HashMap<String, String>user : userList) {
 			currentPerson = Double.parseDouble(user.get("currentScore"));
 			int tp = (int) (currentPerson / temp);
 			peopleCount[tp]++;

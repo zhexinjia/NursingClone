@@ -400,6 +400,20 @@ public class DBhelper {
 		return jsonToList(output);
 	}
 	
+	
+	
+	public ArrayList<HashMap<String, String>> getScheduleHours(int i){
+		String sql = "sql=";
+		String index = Integer.toString(i);
+		sql += "SELECT schdule_history.ssn, count(shift_id) as sectionName" + index + " FROM medic.schdule_history " + 
+				"join user_primary_info on schdule_history.ssn = user_primary_info.ssn " + 
+				"where shift_id = '" + i + "' group by schdule_history.ssn";
+		
+		String output = sendGet(urlGet, sql);
+		System.out.println(sql);
+		return jsonToList(output);
+		
+	}
 	//get selected user Info
 	//TODO no test
 	/*
