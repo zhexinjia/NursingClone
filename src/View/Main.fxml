@@ -132,12 +132,12 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #393f4f;">
                                  <children>
-                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openScheduleSetting" prefHeight="30.0" style="-fx-alignment: center;" text="排班设置" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openScheduleSetting" prefHeight="30.0" style="-fx-alignment: center;" text="排班设置" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Label>
-                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openScheduleList" prefHeight="30.0" style="-fx-alignment: center;" text="科室排班" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <Label id="label-s" maxHeight="30.0" minHeight="30.0" onMouseClicked="#openScheduleList" prefHeight="30.0" style="-fx-alignment: center;" text="科室排班" textFill="#5e6378" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
