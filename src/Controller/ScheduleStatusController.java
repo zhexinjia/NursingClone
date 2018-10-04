@@ -33,6 +33,10 @@ public class ScheduleStatusController implements Initializable {
 	@FXML CategoryAxis xAxis;
 	@FXML NumberAxis yAxis;
 	
+	@FXML BarChart<String, Integer> barChart1;
+	@FXML CategoryAxis xAxis1;
+	@FXML NumberAxis yAxis1;
+	
 	@FXML Label averageField;
 	@FXML Label highestField;
 	@FXML Label lowestField;
@@ -60,11 +64,13 @@ public class ScheduleStatusController implements Initializable {
 		caculatePercent();
 		setupDepartmentPicker();
 			
-		//setupBarChart();
+		setupBarChart();
 	}
+	/*
 	@FXML void detailButton() {
 		loader.loadVBox(box, "/View/RecordList.fxml");
 	}
+	*/
 	
 	@FXML void loadHome() {
 		loader.loadVBox(box, "/View/Welcome.fxml");
@@ -275,6 +281,57 @@ public class ScheduleStatusController implements Initializable {
 
 	
 	private void setupBarChart() {
+		System.out.println("userList " + userList);
+		double max = 0.0, min = 0.0;
+		double current;
+		int scheduleItemSize  = scheduleItemList.size();
+		/*
+		for (HashMap<String, String>user : userList) {
+				current = Double.parseDouble(user.get("currentScore"));
+			if (current > max) {
+				max = current;
+			}
+			if (current < min) {
+				min = current;
+			}
+		}
+		*/
+		ObservableList<String> xaxisItems = FXCollections.observableArrayList();
+		for (int i = 0; i < scheduleItemSize; i++) {
+			
+			xaxisItems.add(scheduleItemList.get(i).get("name"));
+		}
+		
+		xAxis.setCategories(xaxisItems);
+		
+		//calculate number of people in each range
+		int [] peopleCount = new int[scheduleItemSize];
+		
+		for (int i = 0; i < scheduleItemSize; i++) {
+			for (HashMap<String, String>user : userList) {
+				String temp = "sectionName" + i;
+				
+				if (user.get(temp) == null) {
+					peopleCount[i]+=0;
+				}else {
+					int hour = Integer.parseInt(user.get(temp)) ;
+					peopleCount[i]+=hour;
+				}
+			}
+			peopleCount[i] *= Integer.parseInt(scheduleItemList.get(i).get("shift_length"));
+			
+		}
+		
+		
+		XYChart.Series<String, Integer> series = new XYChart.Series<>();
+		for (int i = 0; i < peopleCount.length; i++) {
+            series.getData().add(new XYChart.Data<>(xaxisItems.get(i), peopleCount[i]));
+        }
+		
+        barChart.getData().add(series);
+	}
+	
+	private void setupBarChart1() {
 		System.out.println("scoreList " + userList);
 		double max = 0.0, min = 0.0;
 		double current;
