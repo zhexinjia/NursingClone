@@ -2,7 +2,9 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -141,6 +143,28 @@
                   </JFXComboBox>
                </children>
             </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="135.0" layoutY="26.0" prefHeight="16.0" prefWidth="160.0" style="-fx-font-size: 16;" text="开始日期时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="start_date" />
+                  <JFXTimePicker fx:id="start_time" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="218.0">
+               <children>
+                  <Label alignment="CENTER_RIGHT" layoutX="135.0" layoutY="26.0" prefHeight="16.0" prefWidth="160.0" style="-fx-font-size: 16;" text="结束日期时间 ：" textAlignment="RIGHT" textFill="#8c95aa">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="end_date" />
+                  <JFXTimePicker fx:id="end_time" />
+               </children>
+            </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="221.0">
                <children>
                   <Label alignment="CENTER_RIGHT" layoutX="135.0" layoutY="26.0" prefHeight="16.0" prefWidth="160.0" style="-fx-font-size: 16;" text="选择题库 ：" textAlignment="RIGHT" textFill="#8c95aa">
@@ -222,6 +246,9 @@
                      </HBox.margin>
                   </JFXComboBox>
                </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
             </HBox>
          </children>
          <VBox.margin>

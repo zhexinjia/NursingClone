@@ -331,57 +331,6 @@ public class ScheduleStatusController implements Initializable {
         barChart.getData().add(series);
 	}
 	
-	private void setupBarChart1() {
-		System.out.println("scoreList " + userList);
-		double max = 0.0, min = 0.0;
-		double current;
-		
-		for (HashMap<String, String>user : userList) {
-				current = Double.parseDouble(user.get("currentScore"));
-			if (current > max) {
-				max = current;
-			}
-			if (current < min) {
-				min = current;
-			}
-		}
-
-		int upperBound = (int) Math.round(max) + 10;
-		
-		//setup x-axis
-		int temp = upperBound / 10;
-		System.out.println("temp: " + temp);
-		ObservableList<String> scoreNames = FXCollections.observableArrayList();
-		for (int i = temp; i <= upperBound; i+=temp) {
-			String str;
-			if (i == temp) {
-				str = "0 - " + Integer.toString(i);
-			}else {
-				str = (i - temp) + " - " + Integer.toString(i);
-			}
-			
-			scoreNames.add(str);
-		}
-		
-		xAxis.setCategories(scoreNames);
-		
-		//calculate number of people in each range
-		int [] peopleCount = new int[10];
-		double currentPerson;
-		for (HashMap<String, String>user : userList) {
-			currentPerson = Double.parseDouble(user.get("currentScore"));
-			int tp = (int) (currentPerson / temp);
-			peopleCount[tp]++;
-		}
-		
-		
-		XYChart.Series<String, Integer> series = new XYChart.Series<>();
-		for (int i = 0; i < peopleCount.length; i++) {
-            series.getData().add(new XYChart.Data<>(scoreNames.get(i), peopleCount[i]));
-        }
-		
-        barChart.getData().add(series);
-	}
 	
 		
 

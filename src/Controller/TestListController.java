@@ -34,8 +34,8 @@ public class TestListController implements Initializable {
     Loader loader = new Loader();
     DBhelper dbHelper;
     private ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-    String[] keys = {"examName", "totalPoint", "publishStatus", "time"};
-    String[] fields = {"试卷名称", "试卷积分", "当前状态", "考试时间"};
+    String[] keys = {"examName", "totalPoint", "publishStatus", "time", "start_date", "end_date"};
+    String[] fields = {"试卷名称", "试卷积分", "当前状态", "考试时间","开始日期", "结束日期"};
     public static HashMap<String, String> selectedTest;
     private String branch;
     

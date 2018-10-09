@@ -7,7 +7,9 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTimePicker;
 
 import Model.DBhelper;
 import Model.Loader;
@@ -20,8 +22,11 @@ public class TestNewController implements Initializable {
 	
 	@FXML JFXTextField nameField;
 	@FXML JFXComboBox<Integer> pointPicker;
-	//@FXML JFXComboBox<String> typePicker;
 	@FXML JFXComboBox<Integer> timePicker;
+	@FXML JFXDatePicker start_date;
+	@FXML JFXTimePicker start_time;
+	@FXML JFXDatePicker end_date;
+	@FXML JFXTimePicker end_time;
 	@FXML JFXComboBox<String> bankPicker;
 	
 	@FXML JFXComboBox<Integer> singlePointPicker;
@@ -134,6 +139,11 @@ public class TestNewController implements Initializable {
     		map.put("examName", nameField.getText());
     		map.put("totalPoint", pointPicker.getValue().toString());
     		map.put("time", timePicker.getValue().toString());
+    		
+    		map.put("start_date", start_date.getValue().toString());
+    		map.put("start_time", start_time.getValue().toString());
+    		map.put("end_date", end_date.getValue().toString());
+    		map.put("end_time", end_time.getValue().toString());
     		//map.put("type", typePicker.getValue().equals("随机题目")?"1":"0");
     		map.put("single_point", singlePointPicker.getValue().toString());
     		map.put("multi_point", multiPointPicker.getValue().toString());
