@@ -41,9 +41,14 @@ public class UserModifyController implements Initializable {
     @FXML
     private ChoiceBox<String> titleChoiceBox;
 
+    /*
     @FXML
     private ChoiceBox<String> positionChoiceBox;
-
+*/
+    @FXML
+    private TextField positionField;
+    
+    
     @FXML
     private ChoiceBox<String> levelChoiceBox;
 
@@ -198,8 +203,10 @@ public class UserModifyController implements Initializable {
     		titleChoiceBox.getItems().addAll(titleList);
     		
     		//setup position ChoiceBox
+    		/*
     		String[] positionList = {"无", "副护士长", "护士长", "科护长", "护理部副主任", "护理部主任"};
     		positionChoiceBox.getItems().addAll(positionList);
+    		*/
     		
     		//setup level ChoiceBox
     		String[] levelList = {"N0", "N1", "N2", "N3", "N4", "N5"};
@@ -290,9 +297,16 @@ public class UserModifyController implements Initializable {
 			}
 		}
 		//output.put("department", departmentChoiceBox.getSelectionModel().getSelectedItem());
+		/*
 		if(positionChoiceBox.getSelectionModel().getSelectedItem() != null) {
 			output.put("position", positionChoiceBox.getSelectionModel().getSelectedItem());
 		}
+		*/
+		
+		if (positionField.getText() != null) {
+			output.put("position", positionField.getText());
+		}
+		
 		//output.put("position", positionChoiceBox.getSelectionModel().getSelectedItem());
 		if(titleChoiceBox.getSelectionModel().getSelectedItem()!=null) {
 			output.put("title", titleChoiceBox.getSelectionModel().getSelectedItem());
@@ -393,7 +407,8 @@ public class UserModifyController implements Initializable {
     		departmentChoiceBox.getSelectionModel().select(selectedUser.get("department"));
     		
     		titleChoiceBox.getSelectionModel().select(selectedUser.get("title"));
-    		positionChoiceBox.getSelectionModel().select(selectedUser.get("position"));
+    		//positionChoiceBox.getSelectionModel().select(selectedUser.get("position"));
+    		positionField.setText(selectedUser.get("position"));
     		levelChoiceBox.getSelectionModel().select(selectedUser.get("level"));
     		specialitiesBox.getSelectionModel().select(selectedUser.get("branch"));
     		

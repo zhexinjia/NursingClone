@@ -402,13 +402,15 @@ public class DBhelper {
 	
 	
 	
-	public ArrayList<HashMap<String, String>> getScheduleHours(int i){
+	public ArrayList<HashMap<String, String>> getScheduleHours(int itemSize){
 		String sql = "sql=";
-		String index = Integer.toString(i);
-		sql += "SELECT schdule_history.ssn, count(shift_id) as sectionName" + index + " FROM medic.schdule_history " + 
-				"join user_primary_info on schdule_history.ssn = user_primary_info.ssn " + 
-				"where shift_id = '" + i + "' group by schdule_history.ssn";
+		//String index = Integer.toString(i);
 		
+		for (int x = 0; x < itemSize; x++) {
+			sql += "SELECT schdule_history.ssn, count(shift_id) as sectionName" + Integer.toString(x) + " FROM medic.schdule_history " + 
+					"join user_primary_info on schdule_history.ssn = user_primary_info.ssn " + 
+					"where shift_id = '" + x + "' group by schdule_history.ssn";
+		}
 		String output = sendGet(urlGet, sql);
 		System.out.println(sql);
 		return jsonToList(output);

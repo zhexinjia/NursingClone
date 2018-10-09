@@ -16,6 +16,7 @@ import Model.Loader;
 import Model.PopupWindow;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class TestNewController implements Initializable {
@@ -38,6 +39,8 @@ public class TestNewController implements Initializable {
 	
 	@FXML VBox box;
 	
+	@FXML HBox hbox1;
+	
 	private ArrayList<HashMap<String, String>> list;
 	DBhelper dbHelper = new DBhelper();
 	Loader loader = new Loader();
@@ -48,6 +51,8 @@ public class TestNewController implements Initializable {
 		branch = LoginController.branch;
 		getList();
 		setupChoiceBox();
+		setupTimePicker();
+		
 	}
 	
 	@FXML void loadHome() {
@@ -104,6 +109,20 @@ public class TestNewController implements Initializable {
     		bankPicker.getItems().setAll(banks);
     	
     }
+    
+    private void setupTimePicker() {
+    		
+    		//start_date.hide();
+    		start_time.hide();
+    		end_date.hide();
+    		start_time.hide();
+    		start_date.getOnHidden();
+    		//start_date.show();
+    		hbox1.setVisible(false);
+    		
+    		
+    }
+    
     
     private boolean validate() {
     		if(nameField.getText().trim().isEmpty()) {

@@ -179,7 +179,11 @@
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <ChoiceBox fx:id="positionChoiceBox" prefHeight="27.0" prefWidth="200.0" />
+                                    <TextField fx:id="positionField" prefHeight="27.0" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
                                  </children>
                               </HBox>
                            </children>
